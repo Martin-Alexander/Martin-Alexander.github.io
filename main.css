@@ -70,7 +70,7 @@ body {
 	background: linear-gradient(0deg,
 		rgba(30, 0, 0, 0.7),
 		rgba(50, 0, 0, 0.2)),
-		url('wheat.png');
+		url('wheat.PNG');
 	background-size: cover;
 	background-position: 200px, 0px;
 	padding: 10px;
@@ -86,7 +86,7 @@ body {
 	background: linear-gradient(0deg,
 		rgba(10, 0, 10, 0.7),
 		rgba(30, 0, 30, 0.2)),
-		url('lake.png');
+		url('lake.PNG');
 	background-size: cover;
 	padding: 10px;
 	text-align: center;
