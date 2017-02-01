@@ -11,7 +11,8 @@ body {
 	url('https://upload.wikimedia.org/wikipedia/commons/c/cf/3818_-_Riffelberg_-_Matterhorn_viewed_from_Gornergratbahn.JPG');
 	background-size: cover;
 	display: flex;
-	justify-content: space-around;
+	flex-direction: column;
+	justify-content: center;
 	align-items: center;
 	height: 80vh;
 }
@@ -21,10 +22,16 @@ body {
 	font-size: 120px;
 	text-align: center;
 	color: white;
+	margin: 0px;
+	padding: 0px;
 }
 
 .banner h2 {
 	font-family: 'Open Sans', sans-serif;
+	text-align: center;
 	font-weight: 300;
 	color: rgba(255, 255, 255, 0.7);
+	margin: 0px;
+	padding: 0px;
+	font-size: 50px;
 }
