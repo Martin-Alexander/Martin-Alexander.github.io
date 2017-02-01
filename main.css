@@ -35,3 +35,99 @@ body {
 	padding: 0px;
 	font-size: 50px;
 }
+
+.container {
+
+	margin-top: 10px;
+}
+
+.row {
+	background: rgb(20, 20, 20);
+	border-radius: 5px;
+	margin: 10px;
+}
+
+.race-box {
+	font-family: Helvetica;
+	font-size: 40px;
+	margin: 20px;
+	color: rgb(255, 255, 255);
+	background: linear-gradient(45deg,
+		rgba(25, 25, 55, 0.5),
+		rgba(25, 25, 55, 0.1)),
+		url('athena.PNG');
+	background-size: cover;
+	padding: 10px;
+	text-align: center;
+	border-radius: 5px;
+}
+
+.name-box {
+	font-family: Helvetica;
+	font-size: 40px;
+	margin: 20px;
+	color: rgb(255, 255, 255);
+	background: linear-gradient(0deg,
+		rgba(30, 0, 0, 0.7),
+		rgba(50, 0, 0, 0.2)),
+		url('wheat.png');
+	background-size: cover;
+	background-position: 200px, 0px;
+	padding: 10px;
+	text-align: center;
+	border-radius: 5px;
+}
+
+.sex-box {
+	font-family: Helvetica;
+	font-size: 40px;
+	margin: 20px;
+	color: rgb(255, 255, 255);
+	background: linear-gradient(0deg,
+		rgba(10, 0, 10, 0.7),
+		rgba(30, 0, 30, 0.2)),
+		url('lake.png');
+	background-size: cover;
+	padding: 10px;
+	text-align: center;
+	border-radius: 5px;
+}
+
+.row h1 {
+	font-family: Helvetica;
+	font-size: 40px;	
+}
+
+.row h2 {
+ 	font-family: 'Open Sans', sans-serif;
+	font-size: 30px;
+	font-weight: 300;
+	color: rgba(255, 255, 255, 0.7);
+}
+
+.btn-default {
+	font-family: Helvetica;
+	font-size: 20px;
+	color: rgb(220, 220, 220);
+	border-style: solid;
+	border-color: rgb(220, 80, 80);
+	background-color: rgb(220, 80, 80);
+	border-radius: 5px;
+	margin-top: 60px;
+	width: 100px;
+	height: 40px;
+	box-shadow;
+}
+
+.btn-default:hover {
+	color: rgb(220, 220, 220);
+	border-color: rgb(255, 60, 60);
+	background-color: rgb(255, 60, 60);
+}
+
+.container h3 {
+	font-family: Helvetica;
+	font-size: 90px;	
+	text-align: center;
+	margin: 70px;
+}
