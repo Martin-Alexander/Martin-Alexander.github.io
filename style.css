@@ -24,6 +24,9 @@ input {
 
 .input-field {
 	margin: 8px;
+	display: flex;
+	flex-direction: row;
+
 }
 
 .btn-primary{
@@ -44,4 +47,9 @@ input {
 
 .output {
 	margin-left: 8px;
+}
+
+.error {
+	margin-top: 20px;
+	color: red;
 }
