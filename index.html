@@ -1,39 +1,41 @@
 <!DOCTYPE html>
 <html>
 <head>
+	<title>World Leader Calculator</title>
+	<script src="https://ajax.aspnetcdn.com/ajax/jQuery/jquery-3.1.1.min.js"></script>
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-	<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:300,400">
-	<link rel="stylesheet" href="main.css">
-	<title>Martin Alexander</title>
+	<link rel="stylesheet" href="style.css">
+	<script type="text/javascript" src="script.js"></script>
 </head>
 <body>
-	<div class="banner">
-		<h1>Martin's Blog</h1>
-		<h2>Get Inside My Head</h2>
-		<button type="button" class="btn-default">Start</button>
-	</div>
-	<div class="container">
-		<h3>Biograpgical Details</h3>
-		<div class="row">
-			<div class="col-xs-12 col-sm-12 col-md-4">
-				<div class="name-box">
-					<h1>Name</h1>
-					<h2>Martin</h2>
-				</div>
+	<div class="shell">
+		<div class="input-fields">
+			<div class="input-field">
+				No. of Players Alive:
+				<input name="players-alive" type="text">
 			</div>
-			<div class="col-xs-12 col-sm-12 col-md-4">
-				<div class="sex-box">
-					<h1>Sex</h1>
-					<h2>Male</h2>
-				</div>
+			<div class="input-field">
+				No. of Players Dead:
+				<input name="players-dead" type="text">
 			</div>
-			<div class="col-xs-12 col-sm-12 col-md-4">
-				<div class="race-box">
-					<h1>Race</h1>
-					<h2>White</h2>
-				</div>
-			</div>			
+			<div class="input-field">
+				No. of City-States Alive:
+				<input name="cs-alive" type="text">
+			</div>
+			<div class="input-field">
+				No. of City-States Dead:
+				<input name="cs-dead" type="text">
+			</div>
 		</div>
-	</div>			
+		<button type="button" class="btn btn-primary">
+			Calculate
+		</button>
+		<div class="output-container">
+			No. of Delegates Needed:
+			<div class="output">
+				27
+			</div>
+		</div>
+	</div>
 </body>
 </html>

@@ -1,0 +1,47 @@
+input {
+	position: absolute;
+	left: 190px;
+	width: 40px;
+	height: 20px;
+	font-weight: 300;
+
+}
+
+.shell {
+	position: relative;
+	left: 8vw;
+	top: 80px;
+	display: flex;
+	flex-direction: column;
+}
+
+.input-fields {
+	font-weight: 700;
+	display: flex;
+	flex-direction: column;
+
+}
+
+.input-field {
+	margin: 8px;
+}
+
+.btn-primary{
+	margin-top: 10px;
+	width: 140px;
+}
+
+.btn-primary:focus, .btn-primary:active {
+	outline: none !important;
+}
+
+.output-container {
+	margin-top: 20px;
+	display: flex;
+	flex-direction: row;
+	font-weight: 700;
+}
+
+.output {
+	margin-left: 8px;
+}
