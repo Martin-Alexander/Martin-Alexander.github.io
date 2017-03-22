@@ -1,55 +1,70 @@
-input {
-	position: absolute;
-	left: 190px;
-	width: 40px;
-	height: 20px;
-	font-weight: 300;
-
+body {
+  background-color: #efefef;
 }
 
-.shell {
-	position: relative;
-	left: 8vw;
-	top: 80px;
-	display: flex;
-	flex-direction: column;
+h1 {
+  margin-top: 20px;
+  font-size: 40px;
 }
 
-.input-fields {
-	font-weight: 700;
-	display: flex;
-	flex-direction: column;
-
+h2 {
+  font-size: 30px;
 }
 
-.input-field {
-	margin: 8px;
-	display: flex;
-	flex-direction: row;
-
+h3 {
+  display: inline-block;
+  font-size: 25px;
 }
 
-.btn-primary{
-	margin-top: 10px;
-	width: 140px;
+.content-card {
+  position: relative;
+  background-color: white;
+  border-radius: 4px;
+  box-shadow: 1px 1px 3px #bababa;
+  margin: 20px 20px 30px 0px;
+  padding: 20px;
 }
 
-.btn-primary:focus, .btn-primary:active {
-	outline: none !important;
+.red-block {
+  display: inline-block;
+  position: absolute;
+  right: 60px;
+  top: -10px;
+  width: 60px;
+  height: 60px;
+
+  background-color: #d10a0a;
+  border-radius: 4px;
+  box-shadow: 1px 1px 3px rgba(0, 0, 0, 0.3);
+  color: #efefef;
+
+  font-family: Montserrat;
+  font-size: 25px;
+  text-align: center;
+  line-height: 60px;
 }
 
-.output-container {
-	margin-top: 20px;
-	display: flex;
-	flex-direction: row;
-	font-weight: 700;
+#sidebar {
+  position: fixed;
+  left: 0px;
+  top: 0px;
+  bottom: 0px;
+  width: 300px;
+  text-align: center;
 }
 
-.output {
-	margin-left: 8px;
+#content {
+  margin-left: 300;
+  min-width: 700px;
 }
 
-.error {
-	margin-top: 20px;
-	color: red;
+#info-panel {
+  margin: 20px;
+  padding-bottom: 100px;
+}
+
+img {
+  width: 200px;
+  height: auto;
+  border-radius: 50%;
 }
