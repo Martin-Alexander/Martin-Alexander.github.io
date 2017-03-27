@@ -45,6 +45,8 @@
         $('.' + countrySelecter[0]).find('*').css({'fill':'#efeb00'});
         $('.' + countrySelecter[0]).css({'fill':'#efeb00'});
         $('.drop-down').css({'display':'none'});
+      } else {
+        $('.drop-down').css({'display':'none'});
       }
     }
   });
