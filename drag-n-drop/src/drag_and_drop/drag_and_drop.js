@@ -1,10 +1,10 @@
+import Tray from "./tray";
+
 export default class DragAndDrop {
   constructor({ board, tray  }) {
-    this.board = board;
-    this.tray = tray;
-  }
+    this.boardElement = board;
+    this.trayElement = tray;
 
-  _getImagesFromTray() {
-    return Array.from(this.tray.children);
+    this.tray = new Tray(this.trayElement)
   }
 }
