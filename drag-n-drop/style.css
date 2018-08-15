@@ -1,14 +1,11 @@
 #board {
+  background-color: lightcyan;
   position: relative;
-}
-
-.dragme {
-  width: 100px;
-  position: absolute;
-}
-
-#canvas {
   width: 500px;
   height: 500px;
-  background-color: lightcyan;
+}
+
+#tray img {
+  width: 100px;
+  /* position: absolute; */
 }
