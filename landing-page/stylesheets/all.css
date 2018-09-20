@@ -10270,3 +10270,7 @@ stretchRight
 /* line 16, /Users/seb/code/lewagon/landing/source/stylesheets/all.css.scss */
 body {
   color: #4C4C4C; }
+
+.third-party img {
+  width: 49%;
+}
