@@ -10,6 +10,8 @@ layout: default
     {% endfor %}
   </ul>
 
+  {% assign paginator = page.paginator %}
+
   {% for post in paginator.posts %}
   <article class="post">
     <h1 class="post-title">
@@ -31,12 +33,20 @@ layout: default
 
 <div class="pagination">
   {% if paginator.next_page %}
-    <a class="pagination-item older" href="{{ paginator.next_page_path | prepend: site.baseurl }}">Older</a>
+    {% assign next_page_path = paginator.page | plus: 1 | prepend: "/page" | prepend: page.category | prepend: "category/" | prepend: "/" %}
+    <a class="pagination-item older" href="{{ next_page_path }}">Older</a>
   {% else %}
     <span class="pagination-item older">Older</span>
   {% endif %}
+
   {% if paginator.previous_page %}
-    <a class="pagination-item newer" href="{{ paginator.previous_page_path | prepend: site.baseurl }}">Newer</a>
+    {% if paginator.page == 2 %}
+      {% assign previous_page_path = page.category | prepend: "category/" | prepend: "/" %}
+    {% else %}
+      {% assign previous_page_path = paginator.page | plus: 1 | prepend: "/page" | prepend: page.category | prepend: "category/" | prepend: "/" %}
+    {% endif %}
+
+    <a class="pagination-item newer" href="{{ previous_page_path }}">Newer</a>
   {% else %}
     <span class="pagination-item newer">Newer</span>
   {% endif %}
