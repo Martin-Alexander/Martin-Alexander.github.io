@@ -14,7 +14,11 @@ layout: default
 
     <time datetime="{{ post.date | date_to_xmlschema }}" class="post-date">{{ post.date | date: "%B %-d, %Y" }}</time>
 
-    {{ post.content }}
+    {% if post.format == "long" %}
+      {% include long-form-post.html content=post.content %}
+    {% elsif post.format == "short" %}
+      {% include short-form-post.html content=post.content %}
+    {% endif %}
   </article>
   {% endfor %}
 </div>
