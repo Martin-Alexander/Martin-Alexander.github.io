@@ -15,7 +15,7 @@ defaults:
     image: "/uploads/matthew.jpg"
 permalink: "/:title/"
 url: https://matthewbischoff.com
-paginate: 2
+paginate: 5
 baseurl:
 author:
   name: Matthew Bischoff
@@ -36,7 +36,6 @@ plugins:
 - jekyll-seo-tag
 - jekyll-feed
 - jekyll-redirect-from
-- jekyll-category-pages
 twitter:
   username: mb
 facebook:
@@ -47,3 +46,4 @@ sass:
   sass_dir: _sass
   style: compressed
 repository: mattbischoff/matthewbischoff.com
+include: ['_category']

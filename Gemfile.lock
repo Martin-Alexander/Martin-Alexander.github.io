@@ -29,9 +29,6 @@ GEM
       pathutil (~> 0.9)
       rouge (>= 1.7, < 4)
       safe_yaml (~> 1.0)
-    jekyll-category-pages (1.0.1)
-      jekyll (~> 3.5)
-      jekyll-paginate (~> 1.1, >= 1.0.0)
     jekyll-feed (0.12.1)
       jekyll (>= 3.7, < 5.0)
     jekyll-gist (1.5.0)
@@ -79,7 +76,6 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
-  jekyll-category-pages
   jekyll-feed
   jekyll-gist
   jekyll-paginate
