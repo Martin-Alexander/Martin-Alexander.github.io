@@ -1,0 +1,22 @@
+<header>
+  <div class="container">
+    <nav id="page-links">
+      <div>
+        <a href="/" class="text-weight-bold">Home</a>
+        <a href="/about.html">About</a>
+        <a href="/now.html">/Now</a>
+      </div>
+      <a href="https://lickability.com/">Lickability</a>
+    </nav>
+    <div id="banner-text-section">
+      <h1>Hi, I'm Matthew Bischoff.</h1>
+      <p>I write & speak about sotfware and the people that build it. I've apps at NYTimes, Tumblr, and now run my own studio, Lickability. I obsess about cocktailss, musical theater, and podcasts. Oh yeah, and I was on Jeopardy!</p>
+    </div>
+    <nav id="categories">
+      <a class="button-round" href="#">Latest</a>
+      {% for category in site.categories %}
+        <a class="button-round" href="{{ site.url }}/category/{{ category | first | url_encode }}/index.html">{{ category | first }}</a>
+      {% endfor %}
+    </nav>
+  </div>
+</header>
