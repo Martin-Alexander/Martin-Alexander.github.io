@@ -3,8 +3,8 @@
     <nav id="page-links">
       <div>
         <a href="/" class="text-weight-bold">Home</a>
-        <a href="/about.html">About</a>
-        <a href="/now.html">/Now</a>
+        <a href="/about">About</a>
+        <a href="/now">/Now</a>
       </div>
       <a href="https://lickability.com/">Lickability</a>
     </nav>
@@ -13,13 +13,17 @@
       <p>I write & speak about sotfware and the people that build it. I've apps at NYTimes, Tumblr, and now run my own studio, Lickability. I obsess about cocktailss, musical theater, and podcasts. Oh yeah, and I was on Jeopardy!</p>
     </div>
     <nav id="categories">
-      <a class="button-round" href="#">Latest</a>
+      {% if page.url contains "/archive" %}
+        <a class="button-round blue-highlight" href="/archive">Latest</a>
+      {% else %}
+        <a class="button-round" href="/archive">Latest</a>
+      {% endif %}
       {% for category in site.categories %}
         {% assign category_name = (category | first | url_encode %}
         {% assign category_matcher = "/category/" | append: category_name %}
 
         {% if page.url contains category_matcher %}
-        <a class="button-round blue-highlight" href="{{ site.url }}/category/{{ category_name }}">{{ category | first | capitalize }}</a>
+          <a class="button-round blue-highlight" href="{{ site.url }}/category/{{ category_name }}">{{ category | first | capitalize }}</a>
         {% else %}
           <a class="button-round" href="{{ site.url }}/category/{{ category_name }}">{{ category | first | capitalize }}</a>
         {% endif %}

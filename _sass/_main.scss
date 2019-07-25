@@ -51,9 +51,12 @@ $dark-green: #0E2310;
   font-weight: 400;
   padding: 8px 16px;
   transition: background-color 0.15s ease;
+  color: $text-white;
+  text-decoration: none;
 
   &:hover {
     background-color: rgba(30, 159, 211, 0.5);
+    text-decoration: none;
   }
 }
 
@@ -67,7 +70,12 @@ $dark-green: #0E2310;
 }
 
 a {
+  color: $text-blue;
   text-decoration: none;
+
+  &:hover {
+    text-decoration: underline;
+  }
 }
 
 p, a {
@@ -165,14 +173,6 @@ article {
     font-weight: 700;
   }
 
-  a {
-    color: $text-blue;
-
-    &:hover {
-      text-decoration: underline;
-    }
-  }
-
   hr {
     display: none;
   }
@@ -209,11 +209,4 @@ time {
     margin-left: auto;
   }
 
-  a {
-    color: $text-blue;
-
-    &:hover {
-      text-decoration: underline;
-    }
-  }
 }
