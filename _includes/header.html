@@ -15,7 +15,7 @@
     <nav id="categories">
       <a class="button-round" href="#">Latest</a>
       {% for category in site.categories %}
-        <a class="button-round" href="{{ site.url }}/category/{{ category | first | url_encode }}/index.html">{{ category | first }}</a>
+        <a class="button-round" href="{{ site.url }}/category/{{ category | first | url_encode }}">{{ category | first | capitalize }}</a>
       {% endfor %}
     </nav>
   </div>

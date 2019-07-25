@@ -1,11 +1,4 @@
 <article class="post">
-  <time datetime="{{ post.date | date_to_xmlschema }}" class="post-date">{{ post.date | date: "%B %-d, %Y" }}</time>
-  <a href="{{ post.url }}">
-    <h2 class="post-title">
-      {{ post.title }}
-    </h2>
-  </a>
-
   {% assign inlcude_file = post.format | append: ".html" %}
-  {% include {{inlcude_file}} content=post.content %}
+  {% include {{inlcude_file}} %}
 </article>

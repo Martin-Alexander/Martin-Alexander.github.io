@@ -1,10 +1,46 @@
 @import url('https://use.typekit.net/ktb0bft.css');
 
 $background-black: #0B0012;
-$blue: #1E9FD3;
+$text-blue: #1E9FD3;
 $grey-date: #A2A2A2;
 $text-white: #EAEEF7;
 
+
+$red: #D31E1E;
+$dark-red: #580B0B;
+
+.colour-red { background-color: $red; }
+.colour-dark-red { background-color: $dark-red; }
+
+$purple: #DB00B9;
+$dark-purple: #4F0844;
+
+.colour-purple { background-color: $purple; }
+.colour-dark-purple { background-color: $dark-purple; }
+
+$violet: #751ED3;
+$dark-violet: #1D0735;
+
+.colour-violet { background-color: $violet; }
+.colour-dark-violet { background-color: $dark-violet; }
+
+$blue: #1E2BD3;
+$dark-blue: #0A0E41;
+
+.colour-blue { background-color: $blue; }
+.colour-dark-blue { background-color: $dark-blue; }
+
+$cyan: #1ED3CB;
+$dark-cyan: #0A3B39;
+
+.colour-cyan { background-color: $cyan; }
+.colour-dark-cyan { background-color: $dark-cyan; }
+
+$green: #33D31E;
+$dark-green: #0E2310;
+
+.colour-green { background-color: $green; }
+.colour-dark-green { background-color: $dark-green; }
 
 .text-weight-bold { font-weight: bold; }
 
@@ -30,10 +66,12 @@ a {
   text-decoration: none;
 }
 
-h1, h2 {
-  color: $blue;
-  font-size: 32px;
+p, a {
+  font-size: 1.1em;
+  line-height: 26px;
+  font-weight: 300;
 }
+
 
 body {
   background-color: $background-black;
@@ -44,10 +82,18 @@ header {
   background-image: url('/assets/hero-image.png');
   background-position: center;
   background-size: cover;
-  padding: 27px 0px 20px 0px;
+  padding: 27px 20px 20px 20px;
+
+  max-width: 1110px;
+  margin: 0px auto;
+
+  h1, h2 {
+    color: $text-blue;
+    font-size: 32px;
+  }
 
   nav#page-links {
-    a { color: $blue; font-size: 20px; }
+    a { color: $text-blue; font-size: 20px; }
     div > a:nth-child(2) { margin: 0px 17px; } // middle link
 
     display: flex;
@@ -62,13 +108,14 @@ header {
     font-size: 18px;
     font-weight: 500;
     line-height: 26px;
-    width: 446px;
+    width: 490px;
   }
 
   .container {
     display: flex;
     flex-direction: column;
     height: 45vw;
+    max-height: 470px;
     justify-content: space-between;
     margin: 0px auto;
     max-width: 824px;
@@ -77,7 +124,7 @@ header {
 
 main {
   margin: 68px auto 0px auto;
-  max-width: 652px;
+  max-width: 700px;
 
   img {
     width: 100%;
@@ -88,10 +135,37 @@ article {
   margin-bottom: 40px;
 
   h2 {
-    margin: 0px 0px 28px 0px;
+    margin: 60px 0px 28px 0px;
+    font-size: 2.2em;
+    font-weight: 400;
+  }
+
+  .post-title {
+    margin: 10px 0px 28px 0px;
+    color: $text-blue;
+    font-weight: 700;
+  }
+
+  a {
+    color: $text-blue;
+
+    &:hover {
+      text-decoration: underline;
+    }
   }
 }
 
 time {
   color: $grey-date;
+}
+
+.short-form-post {
+
+  &> div:first-child {
+    height: 8px;
+  }
+
+  &> div:last-child {
+    padding: 32px 20px;
+  }
 }

@@ -1,3 +1,11 @@
 <div class="long-form-post">
-  {{ include.content }}
+  {% include datetime.html date=post.date %}
+
+  <a href="{{ post.url }}">
+    <h2 class="post-title">
+      {{ post.title }}
+    </h2>
+  </a>
+
+  {{ post.content }}
 </div>
