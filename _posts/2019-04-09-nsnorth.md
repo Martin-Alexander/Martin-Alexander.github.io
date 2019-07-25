@@ -15,6 +15,7 @@ image: nsnorth-2019-at-the-st-james-theatre-old-montreal.jpg
 description: Later this month, I’ll be heading north to speak at NSNorth 2019. NSNorth
   is Canada’s premier independent Apple developer and designer conference. Get tickets
   today.
+layout: post
 ---
 
 ![nsnorth-2019-at-the-st-james-theatre-old-montreal.jpg](/uploads/nsnorth-2019-at-the-st-james-theatre-old-montreal.jpg)
