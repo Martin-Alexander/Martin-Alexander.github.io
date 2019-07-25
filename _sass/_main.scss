@@ -57,6 +57,10 @@ $dark-green: #0E2310;
   }
 }
 
+.blue-highlight {
+  background-color: $text-blue;
+}
+
 * {
   color: $text-white;
   font-family: 'proxima-nova', 'sans-serif';
@@ -79,10 +83,18 @@ body {
 }
 
 header {
-  background-image: url('/assets/hero-image.png');
+  padding: 27px 20px 20px 20px;
+  background: linear-gradient(
+    90deg,
+    #0B0012 6.3%,
+    rgba(11, 0, 18, 0) 14.59%,
+    rgba(36,0,61,0.25) 17.76%,
+    rgba(36, 0, 61, 0) 86.37%,
+    rgba(11,0,18,0.5) 90.13%,
+    #0B0012 98.63%),
+   url('/assets/hero-image.png');
   background-position: center;
   background-size: cover;
-  padding: 27px 20px 20px 20px;
 
   max-width: 1110px;
   margin: 0px auto;
@@ -111,15 +123,22 @@ header {
     width: 490px;
   }
 
-  .container {
-    display: flex;
-    flex-direction: column;
-    height: 45vw;
-    max-height: 470px;
-    justify-content: space-between;
-    margin: 0px auto;
-    max-width: 824px;
-  }
+}
+
+footer {
+  margin: 0px auto;
+  padding: 40px 0px;
+  max-width: 824px;
+}
+
+.container {
+  display: flex;
+  flex-direction: column;
+  height: 45vw;
+  max-height: 470px;
+  justify-content: space-between;
+  margin: 0px auto;
+  max-width: 824px;
 }
 
 main {

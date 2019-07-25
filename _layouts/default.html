@@ -4,14 +4,14 @@
   {% include head.html %}
 
   <body>
-    <div class="container content">
+    <div>
       {% include header.html %}
 
       <main>
         {{ content }}
       </main>
 
-      <footer class="footer">
+      <footer>
         <small>
           &copy; <time datetime="{{ site.time | date_to_xmlschema }}">{{ site.time | date: '%Y' }}</time> {{ site.author.name }}. <a rel="license" href="{{ site.license.url }}">{{ site.license.text }}</a>. (<a href="{{ site.url }}/feed/">RSS</a>)
         </small>
