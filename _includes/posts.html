@@ -1,11 +1,27 @@
 <div class="posts">
   {% if page.category %}
     {% for post in site.categories[page.category] %}
-      {% include post.html content=post.content %}
+
+      <article class="post">
+        {% if post.format == "tweet" %}
+          {% include short.html %}
+        {% else %}
+          {% include long.html %}
+        {% endif%}
+      </article>
+
     {% endfor %}
   {% else %}
     {% for post in paginator.posts %}
-      {% include post.html content=post.content %}
+
+      <article class="post">
+        {% if post.format == "tweet" %}
+          {% include short.html %}
+        {% else %}
+          {% include long.html %}
+        {% endif%}
+      </article>
+
     {% endfor %}
   {% endif %}
 </div>

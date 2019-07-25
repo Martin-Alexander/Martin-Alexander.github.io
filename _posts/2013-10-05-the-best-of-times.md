@@ -1,6 +1,5 @@
 ---
 title: The Best of Times
-format: long
 date: 2013-10-05 01:00:00 -04:00
 layout: post
 ---

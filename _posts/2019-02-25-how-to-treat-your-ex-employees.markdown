@@ -1,7 +1,6 @@
 ---
 title: How to Treat Ex-Employees
 date: 2019-02-25 16:50:00 -05:00
-format: long
 categories:
 - tech
 - culture
