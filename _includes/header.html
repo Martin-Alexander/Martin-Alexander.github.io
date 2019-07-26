@@ -14,10 +14,11 @@
     </div>
     <nav id="categories">
       {% if page.url contains "/archive" %}
-        <a class="button-round blue-highlight" href="/archive">Latest</a>
+        <a id="latest" class="button-round blue-highlight" href="/archive">Latest</a>
       {% else %}
-        <a class="button-round" href="/archive">Latest</a>
+        <a id="latest" class="button-round" href="/archive">Latest</a>
       {% endif %}
+
       {% for category in site.categories %}
         {% assign category_name = (category | first | url_encode %}
         {% assign category_matcher = "/category/" | append: category_name %}
@@ -28,6 +29,8 @@
           <a class="button-round" href="{{ site.url }}/category/{{ category_name }}">{{ category | first | capitalize }}</a>
         {% endif %}
       {% endfor %}
+      <ul id="years">
+      </ul>
     </nav>
   </div>
 </header>
