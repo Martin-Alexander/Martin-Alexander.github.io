@@ -23,6 +23,7 @@ layout: null
       "content_html": {{ post.content | jsonify }},
       {% if post.description %}"summary": {{ post.description  | jsonify }},{% endif %}
       {% if post.tags %}"tags":  [ "{{post.tags | join: '","'}}" ],{% endif %}
+      {% if post.categories %}"categories":  [ "{{post.categories | join: '","'}}" ],{% endif %}
       {% if post.link %}"external_url": "{{ post.link }}",{% endif %}
       {% if post.colour %}"colour": "{{ post.colour }}",{% endif %}
       {% if post.format %}"format": "{{ post.format }}",{% endif %}

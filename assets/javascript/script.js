@@ -2,7 +2,15 @@ const latestTag = document.querySelector("#latest");
 const yearsList = document.querySelector("#years");
 const postsList = document.querySelector(".posts");
 
+let category;
+categoryMatch = location.href.match(/\/category\/(?<category>\w+)/);
+if (categoryMatch) { category = categoryMatch.groups.category }
+
 latestTag.insertAdjacentHTML("afterbegin", "<img id=\"carrot\" src=\"/assets/carrot.svg\" alt=\"\">");
+
+if (category) {
+
+}
 
 const withPostData = (data) => {
   const uniqueYears = Array.from(new Set(data.items.map(item => new Date(item.date_published).getFullYear())));
@@ -19,8 +27,15 @@ const withPostData = (data) => {
     const pixelsToBottomOfPage = document.body.clientHeight - window.scrollY - window.innerHeight;
 
     if (pixelsToBottomOfPage < 1500) {
-      const postIndex = getNextPost();
-      const postData = data.items[postIndex];
+      let postsThatShouldShown;
+      if (category !== undefined) {
+        postsThatShouldShown = data.items.filter(post => post.categories.includes(category))
+      } else {
+        postsThatShouldShown = data.items;
+      }
+
+      const postIndex = getNextPostIndex();
+      const postData = postsThatShouldShown[postIndex];
 
       if (postData !== undefined) {
         postsList.insertAdjacentHTML("beforeend", postHTML(postData, postIndex));
@@ -32,7 +47,7 @@ const withPostData = (data) => {
 fetch("/feed.json").then(response => response.json()).then(withPostData)
 
 
-const getNextPost = () => {
+const getNextPostIndex = () => {
   return parseInt(document.querySelector("article:last-child").dataset.postIndex) + 1;
 }
 
