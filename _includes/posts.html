@@ -4,9 +4,11 @@
 
       <article class="post">
         {% if post.format == "tweet" %}
-          {% include short.html %}
+          {% include post_types/short.html %}
+        {% elsif post.format == "link" %}
+          {% include post_types/link.html %}
         {% else %}
-          {% include long.html %}
+          {% include post_types/long.html %}
         {% endif%}
       </article>
 
@@ -16,9 +18,11 @@
 
       <article class="post">
         {% if post.format == "tweet" %}
-          {% include short.html %}
+          {% include post_types/short.html %}
+        {% elsif post.format == "link" %}
+          {% include post_types/link.html %}
         {% else %}
-          {% include long.html %}
+          {% include post_types/long.html %}
         {% endif%}
       </article>
 
