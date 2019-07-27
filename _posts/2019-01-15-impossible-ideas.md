@@ -5,6 +5,10 @@ layout: post
 description: The talk I show to every software engineer who says it’s impossible to
   build something.
 image: cleese.jpg
+categories:
+- talks
+- shorter
+- tech
 ---
 
 ![John Cleese](/uploads/cleese.jpg)

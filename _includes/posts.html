@@ -2,7 +2,7 @@
   {% if page.category %}
     {% for post in site.categories[page.category] %}
 
-      <article data-post-index="{{ forloop.index | minus: 1 }}" class="post">
+      <article class="post">
         {% if post.format == "tweet" %}
           {% include post_types/short.html %}
         {% elsif post.format == "link" %}
@@ -16,7 +16,7 @@
   {% else %}
     {% for post in paginator.posts %}
 
-      <article data-post-index="{{ forloop.index | minus: 1 }}" class="post">
+      <article class="post">
         {% if post.format == "tweet" %}
           {% include post_types/short.html %}
         {% elsif post.format == "link" %}
@@ -29,3 +29,5 @@
     {% endfor %}
   {% endif %}
 </div>
+
+<script src="/assets/javascript/script.js"></script>

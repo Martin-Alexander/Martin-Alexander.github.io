@@ -2,24 +2,54 @@ const latestTag = document.querySelector("#latest");
 const yearsList = document.querySelector("#years");
 const postsList = document.querySelector(".posts");
 
+document.addEventListener("DOMContentLoaded", () => {
+  const main = document.querySelector("main");
+  const footer = document.querySelector("footer");
+
+  footer.style.opacity = "0";
+  footer.style.transition = "opacity 0.1s ease";
+
+  main.style.opacity = "0";
+  main.style.transition = "opacity 0.1s ease";
+
+  setTimeout(() => {
+    main.style.opacity = "1";
+    footer.style.opacity = "1";
+  }, 100);
+});
+
 let category;
 categoryMatch = location.href.match(/\/category\/(?<category>\w+)/);
 if (categoryMatch) { category = categoryMatch.groups.category }
 
+const year = new URL(location.href).searchParams.get("year");
+
 latestTag.insertAdjacentHTML("afterbegin", "<img id=\"carrot\" src=\"/assets/carrot.svg\" alt=\"\">");
 
-if (category) {
-
-}
+Array.from(document.querySelectorAll("article.post")).forEach(article => article.remove());
 
 const withPostData = (data) => {
+  postsThatShouldBeShown(data).slice(0, 5).forEach(post => renderNewPost(post));
+
   const uniqueYears = Array.from(new Set(data.items.map(item => new Date(item.date_published).getFullYear())));
-  uniqueYears.forEach(year =>  yearsList.insertAdjacentHTML("beforeend", `<li class="button-round">${year}</li>`));
+  uniqueYears.forEach(year =>  yearsList.insertAdjacentHTML("beforeend", `
+    <li class="button-round">
+      <a href="/?year=${year}">
+        ${year}
+      </a>
+    </li>
+  `));
 
   latestTag.addEventListener("click", (event) => {
     event.preventDefault();
 
     yearsList.classList.toggle("show");
+    if (yearsList.classList.contains("show")) {
+      yearsList.style.height = `${uniqueYears.length * 38}px`;
+    } else {
+      yearsList.style.height = "0px";
+    }
+
     latestTag.classList.toggle("blue-highlight");
   });
 
@@ -27,18 +57,11 @@ const withPostData = (data) => {
     const pixelsToBottomOfPage = document.body.clientHeight - window.scrollY - window.innerHeight;
 
     if (pixelsToBottomOfPage < 1500) {
-      let postsThatShouldShown;
-      if (category !== undefined) {
-        postsThatShouldShown = data.items.filter(post => post.categories.includes(category))
-      } else {
-        postsThatShouldShown = data.items;
-      }
-
-      const postIndex = getNextPostIndex();
-      const postData = postsThatShouldShown[postIndex];
+      const postIndex = document.querySelectorAll("article.post").length;
+      const postData = postsThatShouldBeShown(data)[postIndex];
 
       if (postData !== undefined) {
-        postsList.insertAdjacentHTML("beforeend", postHTML(postData, postIndex));
+        renderNewPost(postData);
       }
     }
   });
@@ -46,14 +69,51 @@ const withPostData = (data) => {
 
 fetch("/feed.json").then(response => response.json()).then(withPostData)
 
+const postsThatShouldBeShown = (postsData) => {
+  let posts = [];
 
-const getNextPostIndex = () => {
-  return parseInt(document.querySelector("article:last-child").dataset.postIndex) + 1;
+  if (category !== undefined) {
+    posts = postsData.items.filter(post => post.categories.includes(category));
+  } else {
+    posts = postsData.items;
+  }
+
+  if (year !== null) {
+    posts = posts.filter(item => new Date(item.date_published).getFullYear() == year);
+  }
+
+  return posts;
 }
 
 // Rendering Posts
 
-const postHTML = (postData, index) => {
+const renderNewPost = (postData) => {
+  postsList.insertAdjacentHTML("beforeend", postHTML(postData));
+  const newPostElement = postsList.querySelector(".post:last-child");
+
+  const readMoreButton = newPostElement.querySelector(".read-more > a");
+
+  if (readMoreButton) {
+    const readMoreContent = newPostElement.querySelector(".read-more-content");
+
+    readMoreButton.addEventListener("click", (event) => {
+      event.preventDefault();
+
+      readMoreContent.style.display = "block";
+      setTimeout(() => { readMoreContent.style.opacity = "1"; }, 100 );
+
+      const url = new URL(location.href);
+      url.pathname = postData.url;
+
+      document.title = `${postData.title} · Matthew Bischoff`;
+      window.history.pushState(document.title, document.title, url.toString());
+
+      readMoreButton.remove();
+    });
+  }
+}
+
+const postHTML = (postData) => {
   let html;
 
   if (postData.format == "tweet") {
@@ -65,7 +125,7 @@ const postHTML = (postData, index) => {
   }
 
   return `
-    <article data-post-index="${index}" class="post">
+    <article class="post">
       ${html}
     </article>
   `
@@ -77,11 +137,15 @@ const longFormPostHTML = (postData) => {
   let content;
 
   if (postData.content_html.includes("<!-- more -->")) {
-    content = postData.content_html.split("<!-- more -->")[0];
+    const splitContent = postData.content_html.split("<!-- more -->")
+    content = splitContent[0];
     content += `
       <div class="read-more">
         <a href="${url}"> Read More </a>
       </div>
+      <div class="read-more-content">
+        ${splitContent[1]}
+      <div>
     `
   } else {
     content = postData.content_html;
@@ -117,7 +181,7 @@ const linkPostHTML = (postData) => {
 
 const tweetPostHTML = (postData) => {
   const colour = postData.colour;
-  const content = postData.content;
+  const content = postData.content_html;
 
   return `
     <div class="short-form-post">

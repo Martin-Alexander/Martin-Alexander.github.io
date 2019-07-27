@@ -5,6 +5,7 @@ categories:
 - tech
 - culture
 - management
+- longer
 image: firepit.jpg
 description: Many managers think a lot about how they treat their team, but few have
   a philosophy about those that leave it.

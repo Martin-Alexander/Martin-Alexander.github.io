@@ -2,6 +2,10 @@
 title: Lowering the Gates
 date: 2014-02-11 19:00:00 -05:00
 layout: post
+categories:
+- talks
+- shorter
+- tech
 ---
 
 ![The New York Times Building at night](/uploads/nytimes_building_at_night.jpg)

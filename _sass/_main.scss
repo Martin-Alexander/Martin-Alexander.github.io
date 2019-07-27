@@ -78,9 +78,9 @@ a {
   }
 }
 
-p, a {
-  font-size: 1.1em;
-  line-height: 26px;
+p, ul {
+  font-size: 1.25em;
+  line-height: 34px;
   font-weight: 300;
 }
 
@@ -121,13 +121,20 @@ header {
   }
 
   nav#categories {
-    a { margin-right: 10px; }
+    a {
+      margin-right: 10px;
+      color: $text-white;
+      line-height: initial;
+    }
   }
 
   #banner-text-section {
-    font-size: 18px;
-    font-weight: 500;
-    line-height: 26px;
+    p {
+      font-size: 18px;
+      font-weight: 500;
+      line-height: 26px;
+    }
+
     width: 490px;
   }
 
@@ -159,7 +166,7 @@ main {
 }
 
 article {
-  margin-bottom: 40px;
+  margin-bottom: 60px;
 
   h1, h2 {
     font-size: 2.2em;
@@ -203,7 +210,11 @@ time {
   a {
     font-weight: 500;
     text-transform: uppercase;
-    font-size: 14px;
+    // font-size: 14px;
+
+    // What I suggest
+
+    font-size: 18px;
   }
 }
 
@@ -233,8 +244,6 @@ video {
 #years {
   position: absolute;
   list-style: none;
-  margin-inline-start: 0px;
-  margin-block-end: 0px;
   padding-inline-start: 0px;
   width: 97px;
   text-align: center;
@@ -242,18 +251,31 @@ video {
   height: 0px;
   overflow: hidden;
   margin-top: 0px;
-  top: 31px;
-
-  &.show {
-    height: 140px;
-  }
+  top: 28px;
+  z-index: 2;
 
   li {
     background-color: $text-blue;
     margin: 5px 0px;
+    position: relative;
+    height: 17px;
+  }
+
+  a {
+    position: absolute;
+    width: 100%;
+    left: 0;
+    top: 6px;
+    margin-right: initial !important;
   }
 }
 
 #categories {
   position: relative;
+}
+
+.read-more-content {
+  display: none;
+  opacity: 0;
+  transition: opacity 1s ease;
 }
