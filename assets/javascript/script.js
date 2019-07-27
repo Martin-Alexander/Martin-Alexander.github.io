@@ -7,10 +7,10 @@ document.addEventListener("DOMContentLoaded", () => {
   const footer = document.querySelector("footer");
 
   footer.style.opacity = "0";
-  footer.style.transition = "opacity 0.1s ease";
+  footer.style.transition = "opacity 0.4s ease";
 
   main.style.opacity = "0";
-  main.style.transition = "opacity 0.1s ease";
+  main.style.transition = "opacity 0.4s ease";
 
   setTimeout(() => {
     main.style.opacity = "1";
