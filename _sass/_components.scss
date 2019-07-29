@@ -37,3 +37,15 @@
 .blue-highlight {
   background-color: $text-blue;
 }
+
+.mobile-only {
+  @media (min-width: $max-mobile-width) {
+    display: none;
+  }
+}
+
+.desktop-only {
+  @media (max-width: $max-mobile-width) {
+    display: none;
+  }
+}

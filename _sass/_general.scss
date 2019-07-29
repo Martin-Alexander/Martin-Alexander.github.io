@@ -23,13 +23,3 @@ body {
   background-color: $background-black;
   margin: 0px;
 }
-
-.container {
-  display: flex;
-  flex-direction: column;
-  height: 45vw;
-  max-height: 470px;
-  justify-content: space-between;
-  margin: 0px auto;
-  max-width: 824px;
-}
