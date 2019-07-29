@@ -1,0 +1,35 @@
+* {
+  color: $text-white;
+  font-family: 'proxima-nova', 'sans-serif';
+}
+
+a {
+  color: $text-blue;
+  text-decoration: none;
+
+  &:hover {
+    text-decoration: underline;
+  }
+}
+
+p, ul {
+  font-size: 1.25em;
+  line-height: 34px;
+  font-weight: 300;
+}
+
+
+body {
+  background-color: $background-black;
+  margin: 0px;
+}
+
+.container {
+  display: flex;
+  flex-direction: column;
+  height: 45vw;
+  max-height: 470px;
+  justify-content: space-between;
+  margin: 0px auto;
+  max-width: 824px;
+}

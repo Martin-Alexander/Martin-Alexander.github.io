@@ -1,0 +1,85 @@
+header {
+  padding: 27px 20px 20px 20px;
+  background: linear-gradient(
+    90deg,
+    #0B0012 6.3%,
+    rgba(11, 0, 18, 0) 14.59%,
+    rgba(36,0,61,0.25) 17.76%,
+    rgba(36, 0, 61, 0) 86.37%,
+    rgba(11,0,18,0.5) 90.13%,
+    #0B0012 98.63%),
+   url('/assets/hero-image.jpg');
+  background-position: center;
+  background-size: cover;
+
+  max-width: 1110px;
+  margin: 0px auto;
+
+  h1, h2 {
+    color: $text-blue;
+    font-size: 32px;
+  }
+
+  nav#page-links {
+    a { color: $text-blue; font-size: 20px; }
+    div > a:nth-child(2) { margin: 0px 17px; } // middle link
+
+    display: flex;
+    justify-content: space-between;
+  }
+
+  nav#categories {
+    a {
+      margin-right: 10px;
+      color: $text-white;
+      line-height: initial;
+    }
+  }
+
+  #banner-text-section {
+    p {
+      font-size: 18px;
+      font-weight: 500;
+      line-height: 26px;
+    }
+
+    width: 490px;
+  }
+}
+
+#carrot {
+  margin-right: 10px;
+}
+
+#years {
+  position: absolute;
+  list-style: none;
+  padding-inline-start: 0px;
+  width: 97px;
+  text-align: center;
+  transition: height 0.2s ease;
+  height: 0px;
+  overflow: hidden;
+  margin-top: 0px;
+  top: 28px;
+  z-index: 2;
+
+  li {
+    background-color: $text-blue;
+    margin: 5px 0px;
+    position: relative;
+    height: 17px;
+  }
+
+  a {
+    position: absolute;
+    width: 100%;
+    left: 0;
+    top: 6px;
+    margin-right: initial !important;
+  }
+}
+
+#categories {
+  position: relative;
+}
