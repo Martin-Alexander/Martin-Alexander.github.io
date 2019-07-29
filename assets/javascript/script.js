@@ -12,10 +12,13 @@ document.addEventListener("DOMContentLoaded", () => {
   main.style.opacity = "0";
   main.style.transition = "opacity 0.4s ease";
 
-  setTimeout(() => {
-    main.style.opacity = "1";
-    footer.style.opacity = "1";
-  }, 100);
+  fetch("/feed.json").then(response => response.json()).then((data) => {
+    withPostData(data);
+    setTimeout(() => {
+      main.style.opacity = "1";
+      footer.style.opacity = "1";
+    }, 100);
+  });
 });
 
 let category;
@@ -23,9 +26,7 @@ categoryMatch = location.href.match(/\/category\/(?<category>\w+)/);
 if (categoryMatch) { category = categoryMatch.groups.category }
 
 const year = new URL(location.href).searchParams.get("year");
-
 latestTag.insertAdjacentHTML("afterbegin", "<img id=\"carrot\" src=\"/assets/carrot.svg\" alt=\"\">");
-
 Array.from(document.querySelectorAll("article.post")).forEach(article => article.remove());
 
 const withPostData = (data) => {
@@ -66,8 +67,6 @@ const withPostData = (data) => {
     }
   });
 }
-
-fetch("/feed.json").then(response => response.json()).then(withPostData)
 
 const postsThatShouldBeShown = (postsData) => {
   let posts = [];
