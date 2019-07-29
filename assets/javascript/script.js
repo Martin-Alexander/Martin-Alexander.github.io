@@ -1,6 +1,6 @@
-const latestTag = document.querySelector("#latest");
-const yearsList = document.querySelector("#years");
-const postsList = document.querySelector(".posts");
+const LATEST_YEARS = document.querySelector("#latest");
+const YEARS_LIST = document.querySelector("#years");
+const POSTS_LIST = document.querySelector(".posts");
 
 document.addEventListener("DOMContentLoaded", () => {
   const main = document.querySelector("main");
@@ -21,19 +21,19 @@ document.addEventListener("DOMContentLoaded", () => {
   });
 });
 
-let category;
+let CATEGORY;
 categoryMatch = location.href.match(/\/category\/(?<category>\w+)/);
-if (categoryMatch) { category = categoryMatch.groups.category }
+if (categoryMatch) { CATEGORY = categoryMatch.groups.category }
 
 const year = new URL(location.href).searchParams.get("year");
-latestTag.insertAdjacentHTML("afterbegin", "<img id=\"carrot\" src=\"/assets/carrot.svg\" alt=\"\">");
+LATEST_YEARS.insertAdjacentHTML("afterbegin", "<img id=\"carrot\" src=\"/assets/carrot.svg\" alt=\"\">");
 Array.from(document.querySelectorAll("article.post")).forEach(article => article.remove());
 
 const withPostData = (data) => {
   postsThatShouldBeShown(data).slice(0, 5).forEach(post => renderNewPost(post));
 
   const uniqueYears = Array.from(new Set(data.items.map(item => new Date(item.date_published).getFullYear())));
-  uniqueYears.forEach(year =>  yearsList.insertAdjacentHTML("beforeend", `
+  uniqueYears.forEach(year =>  YEARS_LIST.insertAdjacentHTML("beforeend", `
     <li class="button-round">
       <a href="/?year=${year}">
         ${year}
@@ -41,17 +41,17 @@ const withPostData = (data) => {
     </li>
   `));
 
-  latestTag.addEventListener("click", (event) => {
+  LATEST_YEARS.addEventListener("click", (event) => {
     event.preventDefault();
 
-    yearsList.classList.toggle("show");
-    if (yearsList.classList.contains("show")) {
-      yearsList.style.height = `${uniqueYears.length * 38}px`;
+    YEARS_LIST.classList.toggle("show");
+    if (YEARS_LIST.classList.contains("show")) {
+      YEARS_LIST.style.height = `${uniqueYears.length * 38}px`;
     } else {
-      yearsList.style.height = "0px";
+      YEARS_LIST.style.height = "0px";
     }
 
-    latestTag.classList.toggle("blue-highlight");
+    LATEST_YEARS.classList.toggle("blue-highlight");
   });
 
   window.addEventListener("scroll", () => {
@@ -71,8 +71,8 @@ const withPostData = (data) => {
 const postsThatShouldBeShown = (postsData) => {
   let posts = [];
 
-  if (category !== undefined) {
-    posts = postsData.items.filter(post => post.categories.includes(category));
+  if (CATEGORY !== undefined) {
+    posts = postsData.items.filter(post => post.categories.includes(CATEGORY));
   } else {
     posts = postsData.items;
   }
@@ -87,8 +87,8 @@ const postsThatShouldBeShown = (postsData) => {
 // Rendering Posts
 
 const renderNewPost = (postData) => {
-  postsList.insertAdjacentHTML("beforeend", postHTML(postData));
-  const newPostElement = postsList.querySelector(".post:last-child");
+  POSTS_LIST.insertAdjacentHTML("beforeend", postHTML(postData));
+  const newPostElement = POSTS_LIST.querySelector(".post:last-child");
 
   const readMoreButton = newPostElement.querySelector(".read-more > a");
 
