@@ -9,7 +9,7 @@ export const initializeMobileMenu = () => {
 
   hamburgerButton.addEventListener("click", () => {
     mobileMenu.style.display = "block";
-    mobileMenu.style.opacity = "1"
+    setTimeout(() => mobileMenu.style.opacity = "1", 0);
 
     document.body.classList.add("fix");
   });

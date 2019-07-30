@@ -345,7 +345,9 @@ var initializeMobileMenu = function initializeMobileMenu() {
 
   hamburgerButton.addEventListener("click", function () {
     mobileMenu.style.display = "block";
-    mobileMenu.style.opacity = "1";
+    setTimeout(function () {
+      return mobileMenu.style.opacity = "1";
+    }, 0);
     document.body.classList.add("fix");
   });
   mobileMenuButton.addEventListener("click", function () {
