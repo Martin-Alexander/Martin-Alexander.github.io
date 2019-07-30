@@ -40,12 +40,12 @@
 
 .mobile-only {
   @media (min-width: $max-mobile-width) {
-    display: none;
+    display: none !important;
   }
 }
 
 .desktop-only {
   @media (max-width: $max-mobile-width) {
-    display: none;
+    display: none !important;
   }
 }

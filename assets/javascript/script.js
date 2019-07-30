@@ -2,6 +2,20 @@ const LATEST_YEARS = document.querySelector("#latest");
 const YEARS_LIST = document.querySelector("#years");
 const POSTS_LIST = document.querySelector(".posts");
 
+const MOBILE_MENU = document.querySelector("#mobile-menu");
+const HAMBURGER_BUTTON = document.querySelector("#hamburger-button");
+const CLOSE_MOBILE_MENU_BUTTON = document.querySelector("#close-mobile-menu");
+
+HAMBURGER_BUTTON.addEventListener("click", () => {
+  MOBILE_MENU.classList.add("show");
+  document.body.classList.add("fix");
+});
+
+CLOSE_MOBILE_MENU_BUTTON.addEventListener("click", () => {
+  MOBILE_MENU.classList.remove("show");
+  document.body.classList.remove("fix");
+});
+
 document.addEventListener("DOMContentLoaded", () => {
   const main = document.querySelector("main");
   const footer = document.querySelector("footer");
@@ -25,7 +39,7 @@ let CATEGORY;
 categoryMatch = location.href.match(/\/category\/(?<category>\w+)/);
 if (categoryMatch) { CATEGORY = categoryMatch.groups.category }
 
-const year = new URL(location.href).searchParams.get("year");
+const YEAR = new URL(location.href).searchParams.get("year");
 LATEST_YEARS.insertAdjacentHTML("afterbegin", "<img id=\"carrot\" src=\"/assets/carrot.svg\" alt=\"\">");
 Array.from(document.querySelectorAll("article.post")).forEach(article => article.remove());
 
@@ -77,8 +91,8 @@ const postsThatShouldBeShown = (postsData) => {
     posts = postsData.items;
   }
 
-  if (year !== null) {
-    posts = posts.filter(item => new Date(item.date_published).getFullYear() == year);
+  if (YEAR !== null) {
+    posts = posts.filter(item => new Date(item.date_published).getFullYear() == YEAR);
   }
 
   return posts;

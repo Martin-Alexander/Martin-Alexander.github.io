@@ -27,3 +27,17 @@ fetch("/feed.json").then(response => response.json()).then((data) => {
   });
 
 });
+
+const MOBILE_MENU = document.querySelector("#mobile-menu");
+const HAMBURGER_BUTTON = document.querySelector("#hamburger-button");
+const CLOSE_MOBILE_MENU_BUTTON = document.querySelector("#close-mobile-menu");
+
+HAMBURGER_BUTTON.addEventListener("click", () => {
+  MOBILE_MENU.classList.add("show");
+  document.body.classList.add("fix");
+});
+
+CLOSE_MOBILE_MENU_BUTTON.addEventListener("click", () => {
+  MOBILE_MENU.classList.remove("show");
+  document.body.classList.remove("fix");
+});

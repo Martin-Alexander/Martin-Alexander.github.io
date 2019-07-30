@@ -35,17 +35,22 @@ header {
   }
 
   nav#categories {
-    display: flex;
-    overflow-y: scroll;
-    height: 50px;
-    align-items: center;
+    &> div {
+      display: flex;
+      overflow-y: scroll;
+      height: 50px;
+      align-items: start;
 
-    &::-webkit-scrollbar { width: 0 !important; }
-    overflow: -moz-scrollbars-none;
-    -ms-overflow-style: none;
+      &::-webkit-scrollbar { width: 0 !important; }
+      overflow: -moz-scrollbars-none;
+      -ms-overflow-style: none;
+    }
+
 
     a {
       display: flex;
+      align-items: center;
+      justify-content: center;
       margin-right: 10px;
       color: $text-white;
       line-height: initial;
@@ -94,7 +99,7 @@ header {
   height: 0px;
   overflow: hidden;
   margin-top: 0px;
-  top: 28px;
+  top: 35px;
   z-index: 2;
 
   li {
@@ -115,4 +120,15 @@ header {
 
 #categories {
   position: relative;
+  padding-left: 10px;
+}
+
+#hamburger-button {
+  width: 20px;
+  margin: 20px 0px 0px 20px;
+}
+
+#close-mobile-menu {
+  width: 20px;
+  margin: 20px 0px 0px 20px;
 }

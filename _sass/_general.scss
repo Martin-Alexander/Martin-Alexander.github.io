@@ -21,5 +21,39 @@ p, ul {
 
 body {
   background-color: $background-black;
+  position: relative;
   margin: 0px;
+
+  &.fix {
+    overflow: hidden;
+  }
+}
+
+#mobile-menu {
+  background-color: $background-black;
+  position: absolute;
+  width: 100%;
+  top: 0px;
+  bottom: 0px;
+  z-index: 2;
+  opacity: 0;
+  display: none;
+  transition: opacity 0.25s ease;
+
+  &> div {
+    padding-top: 80px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  &.show {
+    opacity: 1;
+    display: block;
+  }
+
+  a {
+    font-size: 25px;
+    font-weight: 700;
+  }
 }
