@@ -8,12 +8,18 @@ export const initializeMobileMenu = () => {
   }
 
   hamburgerButton.addEventListener("click", () => {
-    mobileMenu.classList.add("show");
+    mobileMenu.style.display = "block";
+    mobileMenu.style.opacity = "1"
+
     document.body.classList.add("fix");
   });
 
   mobileMenuButton.addEventListener("click", () => {
-    mobileMenu.classList.remove("show");
+    mobileMenu.style.opacity = "0"
+    setTimeout(() => {
+      mobileMenu.style.display = "none";
+    }, 250);
+
     document.body.classList.remove("fix");
   });
 }

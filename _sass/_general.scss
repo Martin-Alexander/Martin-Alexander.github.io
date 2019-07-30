@@ -57,13 +57,9 @@ blockquote {
     align-items: center;
   }
 
-  &.show {
-    opacity: 1;
-    display: block;
-  }
-
   a {
-    font-size: 25px;
+    font-size: 36px;
+    line-height: 1.4;
     font-weight: 700;
   }
 }
