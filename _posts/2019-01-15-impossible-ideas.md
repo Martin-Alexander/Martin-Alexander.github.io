@@ -7,8 +7,7 @@ description: The talk I show to every software engineer who says it’s impossib
 image: cleese.jpg
 categories:
 - talks
-- shorter
-- tech
+- culture
 ---
 
 ![John Cleese](/uploads/cleese.jpg)

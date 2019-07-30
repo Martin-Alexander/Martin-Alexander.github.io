@@ -3,8 +3,8 @@ title: The Best of Times
 date: 2013-10-05 01:00:00 -04:00
 layout: post
 categories:
-- talks
-- shorter
+- management
+- culture
 - tech
 ---
 

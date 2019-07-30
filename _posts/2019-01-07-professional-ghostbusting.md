@@ -6,9 +6,7 @@ description: Why do people stop answering your emails at work, and how can you s
   it?
 layout: post
 categories:
-- talks
-- shorter
-- tech
+- culture
 ---
 
 ![Ghostbusters](/uploads/ghostbusters.jpg)

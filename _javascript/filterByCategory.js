@@ -2,6 +2,8 @@ import { setPosts } from "./setPosts";
 import capitalize from "capitalize";
 
 export const initializeFilterByCategory = (data, postList) => {
+  if (!postList) { return; }
+
   const categoryButtons = document.querySelectorAll(".category");
   const footer = document.querySelector("footer");
   const main = document.querySelector("main");

@@ -2,6 +2,8 @@
 title: The Website Isn’t Your Problem
 date: 2015-06-12 01:00:00 -04:00
 layout: post
+categories:
+- tech
 ---
 
 Inside The New York Times Building next week, it’s going to get harder to do your job. Clifford Levy, a Pulitzer prize winning journalist, and former coworker tweeted that the way to get this company thinking mobile first, is to block the website. Wait, what?

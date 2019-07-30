@@ -124,6 +124,10 @@ __webpack_require__.r(__webpack_exports__);
 
 
 var initializeFilterByCategory = function initializeFilterByCategory(data, postList) {
+  if (!postList) {
+    return;
+  }
+
   var categoryButtons = document.querySelectorAll(".category");
   var footer = document.querySelector("footer");
   var main = document.querySelector("main");
