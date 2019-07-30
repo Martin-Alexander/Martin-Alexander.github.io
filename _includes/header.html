@@ -26,9 +26,9 @@
           {% assign category_matcher = "/category/" | append: category_name %}
 
           {% if page.url contains category_matcher %}
-            <a class="button-round blue-highlight" href="{{ site.url }}/category/{{ category_name }}">{{ category | first | capitalize }}</a>
+            <a data-category-name="{{category_name}}" class="category button-round blue-highlight" href="{{ site.url }}/category/{{ category_name }}">{{ category | first | capitalize }}</a>
           {% else %}
-            <a class="button-round" href="{{ site.url }}/category/{{ category_name }}">{{ category | first | capitalize }}</a>
+            <a data-category-name="{{category_name}}" class="category button-round" href="{{ site.url }}/category/{{ category_name }}">{{ category | first | capitalize }}</a>
           {% endif %}
         {% endfor %}
       </div>

@@ -32,11 +32,12 @@
     background-color: rgba(30, 159, 211, 0.5);
     text-decoration: none;
   }
+
+  &.blue-highlight {
+    background-color: $text-blue;
+  }
 }
 
-.blue-highlight {
-  background-color: $text-blue;
-}
 
 .mobile-only {
   @media (min-width: $max-mobile-width) {

@@ -3,6 +3,7 @@ import { initializeMobileMenu } from "./mobileMenu";
 import { initializeInfiniteScroll } from "./infiniteScroll";
 import { initializeFilterByYear } from "./filterByYear";
 import { addArrowIconToLatest } from "./addArrowIconToLatest"
+import { initializeFilterByCategory } from "./filterByCategory";
 
 addArrowIconToLatest();
 
@@ -28,6 +29,7 @@ fetch("/feed.json").then(response => response.json()).then((data) => {
   setPosts(data, postListElement, category, year);
   initializeInfiniteScroll(data, postListElement, category, year)
   initializeFilterByYear(data);
+  initializeFilterByCategory(data, postListElement)
 
   setTimeout(() => {
     main.style.opacity = "1";

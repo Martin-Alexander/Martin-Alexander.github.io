@@ -1,13 +1,13 @@
 export const postsThatShouldBeShown = (postsData, category, year) => {
   let posts = [];
 
-  if (category !== undefined) {
+  if (category) {
     posts = postsData.items.filter(post => post.categories.includes(category));
   } else {
     posts = postsData.items;
   }
 
-  if (year !== null) {
+  if (year) {
     posts = posts.filter(item => new Date(item.date_published).getFullYear() == year);
   }
 
