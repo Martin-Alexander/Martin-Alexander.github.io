@@ -18,6 +18,9 @@ p, ul {
   font-weight: 300;
 }
 
+h1, h2 {
+  color: $text-blue;
+}
 
 body {
   background-color: $background-black;
@@ -26,6 +29,13 @@ body {
 
   &.fix {
     overflow: hidden;
+  }
+}
+
+blockquote {
+  @media (max-width: $max-mobile-width) {
+    margin-inline-start: 20px;
+    margin-inline-end: 20px;
   }
 }
 
@@ -56,4 +66,9 @@ body {
     font-size: 25px;
     font-weight: 700;
   }
+}
+
+.wrapper {
+  max-width: 700px;
+  padding: 0px 20px;
 }
