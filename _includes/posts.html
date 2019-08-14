@@ -1,31 +1,33 @@
 <div class="posts">
-  {% if page.category %}
-    {% for post in site.categories[page.category] %}
+  <noscript>
+    {% if page.category %}
+      {% for post in site.categories[page.category] %}
 
-      <article class="post">
-        {% if post.format == "tweet" %}
-          {% include post_types/short.html %}
-        {% elsif post.format == "link" %}
-          {% include post_types/link.html %}
-        {% else %}
-          {% include post_types/long.html %}
-        {% endif%}
-      </article>
+        <article class="post">
+          {% if post.format == "tweet" %}
+            {% include post_types/short.html %}
+          {% elsif post.format == "link" %}
+            {% include post_types/link.html %}
+          {% else %}
+            {% include post_types/long.html %}
+          {% endif%}
+        </article>
 
-    {% endfor %}
-  {% else %}
-    {% for post in paginator.posts %}
+      {% endfor %}
+    {% else %}
+      {% for post in paginator.posts %}
 
-      <article class="post">
-        {% if post.format == "tweet" %}
-          {% include post_types/short.html %}
-        {% elsif post.format == "link" %}
-          {% include post_types/link.html %}
-        {% else %}
-          {% include post_types/long.html %}
-        {% endif%}
-      </article>
+        <article class="post">
+          {% if post.format == "tweet" %}
+            {% include post_types/short.html %}
+          {% elsif post.format == "link" %}
+            {% include post_types/link.html %}
+          {% else %}
+            {% include post_types/long.html %}
+          {% endif%}
+        </article>
 
-    {% endfor %}
-  {% endif %}
+      {% endfor %}
+    {% endif %}
+  </noscript>
 </div>

@@ -7,10 +7,18 @@ import { initializeFilterByCategory } from "./filterByCategory";
 
 addArrowIconToLatest();
 
-let category;
-const categoryMatch = location.href.match(/\/category\/(?<category>\w+)/);
-if (categoryMatch) { category = categoryMatch.groups.category }
-const year = new URL(location.href).searchParams.get("year");
+export const getCategory = () => {
+  let category;
+  const categoryMatch = location.href.match(/\/category\/(?<category>\w+)/);
+  if (categoryMatch) { category = categoryMatch.groups.category }
+  return category;
+}
+
+export const getYear = () => {
+  const year = new URL(location.href).searchParams.get("year");
+  return year;
+}
+
 const postListElement = document.querySelector(".posts");
 
 const main = document.querySelector("main");
@@ -26,9 +34,9 @@ if (posts) {
 }
 
 fetch("/feed.json").then(response => response.json()).then((data) => {
-  setPosts(data, postListElement, category, year);
-  initializeInfiniteScroll(data, postListElement, category, year)
-  initializeFilterByYear(data);
+  setPosts(data, postListElement);
+  initializeInfiniteScroll(data, postListElement)
+  initializeFilterByYear(data, postListElement);
   initializeFilterByCategory(data, postListElement)
 
   setTimeout(() => {

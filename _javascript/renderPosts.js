@@ -51,6 +51,7 @@ const postHTML = (postData) => {
     html = longFormPostHTML(postData);
   }
 
+
   return `
     <article class="post">
       ${html}
@@ -80,8 +81,9 @@ const longFormPostHTML = (postData) => {
 
   return `
     <div class="long-form-post">
-      ${dateHTML(postData.date_published)}
-
+      <a href="${postData.url}" target="_blank">
+        ${dateHTML(postData.date_published)}
+      </a>
       <a href="${url}">
         <h2 class="post-title">
           ${title}
@@ -99,8 +101,9 @@ const linkPostHTML = (postData) => {
 
   return `
     <div class="link-post">
-      ${dateHTML(postData.date_published)}
-
+      <a href="${postData.url}" target="_blank">
+        ${dateHTML(postData.date_published)}
+      </a>
       <h2><a href="${link}" target="_blank">${title}</a></h2>
     </div>
   `
@@ -114,7 +117,9 @@ const tweetPostHTML = (postData) => {
     <div class="short-form-post">
       <div class="colour-${colour}"></div>
       <div class="colour-dark-${colour}">
-        ${dateHTML(postData.date_published)}
+        <a href="${postData.url}" target="_blank">
+          ${dateHTML(postData.date_published)}
+        </a>
         ${content}
       </div>
     </div>

@@ -1,6 +1,10 @@
 import { postsThatShouldBeShown, renderNewPost } from "./renderPosts"
+import { getYear, getCategory } from "./index";
 
-export const setPosts = (data, postList, category, year) => {
+export const setPosts = (data, postList) => {
+  const year = getYear();
+  const category = getCategory();
+
   const posts = document.querySelector(".posts");
   if (posts === null) { return; }
 

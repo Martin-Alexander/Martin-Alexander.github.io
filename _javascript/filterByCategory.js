@@ -20,7 +20,7 @@ export const initializeFilterByCategory = (data, postList) => {
       main.style.opacity = "0";
 
       setTimeout(() => {
-        setPosts(data, postList, categoryButton.dataset.categoryName);
+        setPosts(data, postList);
         setTimeout(() => {
           main.style.opacity = "1";
           footer.style.opacity = "1";
@@ -29,6 +29,7 @@ export const initializeFilterByCategory = (data, postList) => {
 
       const url = new URL(location.href);
       url.pathname = `category/${categoryName}`;
+      url.search = "";
 
       document.title = `${capitalize(categoryName)} · Matthew Bischoff`;
       window.history.pushState(document.title, document.title, url.toString());

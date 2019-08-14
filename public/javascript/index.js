@@ -142,7 +142,7 @@ var initializeFilterByCategory = function initializeFilterByCategory(data, postL
       footer.style.opacity = "0";
       main.style.opacity = "0";
       setTimeout(function () {
-        Object(_setPosts__WEBPACK_IMPORTED_MODULE_0__["setPosts"])(data, postList, categoryButton.dataset.categoryName);
+        Object(_setPosts__WEBPACK_IMPORTED_MODULE_0__["setPosts"])(data, postList);
         setTimeout(function () {
           main.style.opacity = "1";
           footer.style.opacity = "1";
@@ -150,6 +150,7 @@ var initializeFilterByCategory = function initializeFilterByCategory(data, postL
       }, 300);
       var url = new URL(location.href);
       url.pathname = "category/".concat(categoryName);
+      url.search = "";
       document.title = "".concat(capitalize__WEBPACK_IMPORTED_MODULE_1___default()(categoryName), " \xB7 Matthew Bischoff");
       window.history.pushState(document.title, document.title, url.toString());
     });
@@ -168,9 +169,13 @@ var initializeFilterByCategory = function initializeFilterByCategory(data, postL
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "initializeFilterByYear", function() { return initializeFilterByYear; });
-var initializeFilterByYear = function initializeFilterByYear(data) {
+/* harmony import */ var _setPosts__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./setPosts */ "./_javascript/setPosts.js");
+
+var initializeFilterByYear = function initializeFilterByYear(data, postList) {
   var latestTag = document.querySelector("#latest");
   var yearsList = document.querySelector("#years");
+  var footer = document.querySelector("footer");
+  var main = document.querySelector("main");
 
   if ([latestTag, yearsList].some(function (element) {
     return element === null;
@@ -182,7 +187,32 @@ var initializeFilterByYear = function initializeFilterByYear(data) {
     return new Date(item.date_published).getFullYear();
   })));
   uniqueYears.forEach(function (year) {
-    return yearsList.insertAdjacentHTML("beforeend", "\n    <li class=\"button-round\">\n      <a href=\"/?year=".concat(year, "\">\n        ").concat(year, "\n      </a>\n    </li>\n  "));
+    yearsList.insertAdjacentHTML("beforeend", "\n      <li class=\"button-round\">\n        <a class=\"year\" data-year=\"".concat(year, "\" href=\"/?year=").concat(year, "\">\n          ").concat(year, "\n        </a>\n      </li>\n    "));
+  });
+  document.querySelectorAll(".year").forEach(function (yearButton) {
+    yearButton.addEventListener("click", function (event) {
+      var year = parseInt(yearButton.dataset.year);
+      event.preventDefault();
+      footer.style.opacity = "0";
+      main.style.opacity = "0";
+      setTimeout(function () {
+        Object(_setPosts__WEBPACK_IMPORTED_MODULE_0__["setPosts"])(data, postList);
+        setTimeout(function () {
+          main.style.opacity = "1";
+          footer.style.opacity = "1";
+        }, 300);
+      }, 300);
+      var url = new URL(location.href);
+      url.pathname = "";
+      url.search = "year=".concat(year);
+      document.title = "".concat(year, " \xB7 Matthew Bischoff");
+      window.history.pushState(document.title, document.title, url.toString());
+      yearsList.style.height = "0px";
+      yearsList.classList.toggle("show");
+      setTimeout(function () {
+        latestTag.classList.toggle("blue-highlight");
+      }, 200);
+    });
   });
   latestTag.addEventListener("click", function (event) {
     event.preventDefault();
@@ -204,11 +234,13 @@ var initializeFilterByYear = function initializeFilterByYear(data) {
 /*!******************************!*\
   !*** ./_javascript/index.js ***!
   \******************************/
-/*! no exports provided */
+/*! exports provided: getCategory, getYear */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "getCategory", function() { return getCategory; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "getYear", function() { return getYear; });
 /* harmony import */ var _setPosts__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./setPosts */ "./_javascript/setPosts.js");
 /* harmony import */ var _mobileMenu__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./mobileMenu */ "./_javascript/mobileMenu.js");
 /* harmony import */ var _infiniteScroll__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./infiniteScroll */ "./_javascript/infiniteScroll.js");
@@ -244,16 +276,22 @@ function _getPrototypeOf(o) { _getPrototypeOf = Object.setPrototypeOf ? Object.g
 
 
 Object(_addArrowIconToLatest__WEBPACK_IMPORTED_MODULE_4__["addArrowIconToLatest"])();
-var category;
-var categoryMatch = location.href.match(_wrapRegExp(/\/category\/(\w+)/, {
-  category: 1
-}));
+var getCategory = function getCategory() {
+  var category;
+  var categoryMatch = location.href.match(_wrapRegExp(/\/category\/(\w+)/, {
+    category: 1
+  }));
 
-if (categoryMatch) {
-  category = categoryMatch.groups.category;
-}
+  if (categoryMatch) {
+    category = categoryMatch.groups.category;
+  }
 
-var year = new URL(location.href).searchParams.get("year");
+  return category;
+};
+var getYear = function getYear() {
+  var year = new URL(location.href).searchParams.get("year");
+  return year;
+};
 var postListElement = document.querySelector(".posts");
 var main = document.querySelector("main");
 var footer = document.querySelector("footer");
@@ -269,9 +307,9 @@ if (posts) {
 fetch("/feed.json").then(function (response) {
   return response.json();
 }).then(function (data) {
-  Object(_setPosts__WEBPACK_IMPORTED_MODULE_0__["setPosts"])(data, postListElement, category, year);
-  Object(_infiniteScroll__WEBPACK_IMPORTED_MODULE_2__["initializeInfiniteScroll"])(data, postListElement, category, year);
-  Object(_filterByYear__WEBPACK_IMPORTED_MODULE_3__["initializeFilterByYear"])(data);
+  Object(_setPosts__WEBPACK_IMPORTED_MODULE_0__["setPosts"])(data, postListElement);
+  Object(_infiniteScroll__WEBPACK_IMPORTED_MODULE_2__["initializeInfiniteScroll"])(data, postListElement);
+  Object(_filterByYear__WEBPACK_IMPORTED_MODULE_3__["initializeFilterByYear"])(data, postListElement);
   Object(_filterByCategory__WEBPACK_IMPORTED_MODULE_5__["initializeFilterByCategory"])(data, postListElement);
   setTimeout(function () {
     main.style.opacity = "1";
@@ -298,8 +336,12 @@ Object(_mobileMenu__WEBPACK_IMPORTED_MODULE_1__["initializeMobileMenu"])();
 __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "initializeInfiniteScroll", function() { return initializeInfiniteScroll; });
 /* harmony import */ var _renderPosts__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./renderPosts */ "./_javascript/renderPosts.js");
+/* harmony import */ var _index__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./index */ "./_javascript/index.js");
 
-var initializeInfiniteScroll = function initializeInfiniteScroll(data, postListElement, category, year) {
+
+var initializeInfiniteScroll = function initializeInfiniteScroll(data, postListElement) {
+  var year = Object(_index__WEBPACK_IMPORTED_MODULE_1__["getYear"])();
+  var category = Object(_index__WEBPACK_IMPORTED_MODULE_1__["getCategory"])();
   var posts = document.querySelector(".posts");
 
   if (posts === null) {
@@ -440,19 +482,19 @@ var longFormPostHTML = function longFormPostHTML(postData) {
     content = postData.content_html;
   }
 
-  return "\n    <div class=\"long-form-post\">\n      ".concat(dateHTML(postData.date_published), "\n\n      <a href=\"").concat(url, "\">\n        <h2 class=\"post-title\">\n          ").concat(title, "\n        </h2>\n      </a>\n\n      ").concat(content, "\n    </div>\n  ");
+  return "\n    <div class=\"long-form-post\">\n      <a href=\"".concat(postData.url, "\" target=\"_blank\">\n        ").concat(dateHTML(postData.date_published), "\n      </a>\n      <a href=\"").concat(url, "\">\n        <h2 class=\"post-title\">\n          ").concat(title, "\n        </h2>\n      </a>\n\n      ").concat(content, "\n    </div>\n  ");
 };
 
 var linkPostHTML = function linkPostHTML(postData) {
   var link = postData.external_url;
   var title = postData.title;
-  return "\n    <div class=\"link-post\">\n      ".concat(dateHTML(postData.date_published), "\n\n      <h2><a href=\"").concat(link, "\" target=\"_blank\">").concat(title, "</a></h2>\n    </div>\n  ");
+  return "\n    <div class=\"link-post\">\n      <a href=\"".concat(postData.url, "\" target=\"_blank\">\n        ").concat(dateHTML(postData.date_published), "\n      </a>\n      <h2><a href=\"").concat(link, "\" target=\"_blank\">").concat(title, "</a></h2>\n    </div>\n  ");
 };
 
 var tweetPostHTML = function tweetPostHTML(postData) {
   var colour = postData.colour;
   var content = postData.content_html;
-  return "\n    <div class=\"short-form-post\">\n      <div class=\"colour-".concat(colour, "\"></div>\n      <div class=\"colour-dark-").concat(colour, "\">\n        ").concat(dateHTML(postData.date_published), "\n        ").concat(content, "\n      </div>\n    </div>\n  ");
+  return "\n    <div class=\"short-form-post\">\n      <div class=\"colour-".concat(colour, "\"></div>\n      <div class=\"colour-dark-").concat(colour, "\">\n        <a href=\"").concat(postData.url, "\" target=\"_blank\">\n          ").concat(dateHTML(postData.date_published), "\n        </a>\n        ").concat(content, "\n      </div>\n    </div>\n  ");
 };
 
 var dateHTML = function dateHTML(postPublishedAt) {
@@ -479,8 +521,12 @@ var dateHTML = function dateHTML(postPublishedAt) {
 __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "setPosts", function() { return setPosts; });
 /* harmony import */ var _renderPosts__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./renderPosts */ "./_javascript/renderPosts.js");
+/* harmony import */ var _index__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./index */ "./_javascript/index.js");
 
-var setPosts = function setPosts(data, postList, category, year) {
+
+var setPosts = function setPosts(data, postList) {
+  var year = Object(_index__WEBPACK_IMPORTED_MODULE_1__["getYear"])();
+  var category = Object(_index__WEBPACK_IMPORTED_MODULE_1__["getCategory"])();
   var posts = document.querySelector(".posts");
 
   if (posts === null) {
