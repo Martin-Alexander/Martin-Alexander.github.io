@@ -3,9 +3,23 @@
     <nav id="page-links">
       <img tabindex="0" id="hamburger-button" src="/assets/hamburger.svg" class="mobile-only">
       <div class="desktop-only">
-        <a href="/" class="text-weight-bold">Home</a>
-        <a href="/about">About</a>
-        <a href="/now">/Now</a>
+        {% if page.url == "/" %}
+          <a href="/" class="text-weight-bold">Home</a>
+        {% else %}
+          <a href="/">Home</a>
+        {% endif %}
+
+        {% if page.url == "/about/" %}
+          <a href="/about" class="text-weight-bold">About</a>
+        {% else %}
+          <a href="/about">About</a>
+        {% endif %}
+
+        {% if page.url == "/now/" %}
+          <a href="/now" class="text-weight-bold">/Now</a>
+        {% else %}
+          <a href="/now">/Now</a>
+        {% endif %}
       </div>
       <a href="https://lickability.com/" class="desktop-only">Lickability</a>
     </nav>
