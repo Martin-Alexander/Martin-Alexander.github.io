@@ -35,11 +35,6 @@
           <a id="latest" class="button-round" href="/archive"><span>Latest</span></a>
         {% endif %}
 
-        <!-- <script>
-          // LATEST ARROW ISSUE
-          document.querySelector("#latest > span").classList.add("js-only-prepare-for-arrow");
-        </script> -->
-
         {% for category in site.categories %}
           {% assign category_name = (category | first | url_encode %}
           {% assign category_matcher = "/category/" | append: category_name %}

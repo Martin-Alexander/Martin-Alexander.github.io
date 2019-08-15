@@ -89,12 +89,11 @@ header {
   margin-right: 10px;
 }
 
-// LATEST ARROW ISSUE
-// #latest {
-//   .js-only-prepare-for-arrow {
-//     margin-left: 10px;
-//   }
-// }
+#latest {
+  width: 66px;
+  text-align: right;
+  display: block !important;
+}
 
 #years {
   position: absolute;
