@@ -7,7 +7,9 @@ article {
 }
 
 time {
-  color: $grey-date;
+  a {
+    color: $grey-date;
+  }
 }
 
 .short-form-post {

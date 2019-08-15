@@ -1,3 +1,4 @@
-<a href="{{ post.link }}" target="_blank">
-  <time datetime="{{ post.date | date_to_xmlschema }}" class="post-date">{{ post.date | date: "%B %-d, %Y" }}</time>
-</a>
+<time datetime="{{ post.date | date_to_xmlschema }}" class="post-date">
+  <a href="{{ post.link }}" target="_blank">{{ post.date | date: "%B %-d, %Y" }}</a>
+</time>
+

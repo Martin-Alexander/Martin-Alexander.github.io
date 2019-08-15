@@ -482,30 +482,30 @@ var longFormPostHTML = function longFormPostHTML(postData) {
     content = postData.content_html;
   }
 
-  return "\n    <div class=\"long-form-post\">\n      <a href=\"".concat(postData.url, "\" target=\"_blank\">\n        ").concat(dateHTML(postData.date_published), "\n      </a>\n      <a href=\"").concat(url, "\">\n        <h2 class=\"post-title\">\n          ").concat(title, "\n        </h2>\n      </a>\n\n      ").concat(content, "\n    </div>\n  ");
+  return "\n    <div class=\"long-form-post\">\n      ".concat(dateHTML(postData), "\n      <a href=\"").concat(url, "\">\n        <h2 class=\"post-title\">\n          ").concat(title, "\n        </h2>\n      </a>\n\n      ").concat(content, "\n    </div>\n  ");
 };
 
 var linkPostHTML = function linkPostHTML(postData) {
   var link = postData.external_url;
   var title = postData.title;
-  return "\n    <div class=\"link-post\">\n      <a href=\"".concat(postData.url, "\" target=\"_blank\">\n        ").concat(dateHTML(postData.date_published), "\n      </a>\n      <h2><a href=\"").concat(link, "\" target=\"_blank\">").concat(title, "</a></h2>\n    </div>\n  ");
+  return "\n    <div class=\"link-post\">\n      ".concat(dateHTML(postData), "\n      <h2><a href=\"").concat(link, "\" target=\"_blank\">").concat(title, "</a></h2>\n    </div>\n  ");
 };
 
 var tweetPostHTML = function tweetPostHTML(postData) {
   var colour = postData.colour;
   var content = postData.content_html;
-  return "\n    <div class=\"short-form-post\">\n      <div class=\"colour-".concat(colour, "\"></div>\n      <div class=\"colour-dark-").concat(colour, "\">\n        <a href=\"").concat(postData.url, "\" target=\"_blank\">\n          ").concat(dateHTML(postData.date_published), "\n        </a>\n        ").concat(content, "\n      </div>\n    </div>\n  ");
+  return "\n    <div class=\"short-form-post\">\n      <div class=\"colour-".concat(colour, "\"></div>\n      <div class=\"colour-dark-").concat(colour, "\">\n        ").concat(dateHTML(postData), "\n        ").concat(content, "\n      </div>\n    </div>\n  ");
 };
 
-var dateHTML = function dateHTML(postPublishedAt) {
-  var xmlSchemaData = postPublishedAt;
+var dateHTML = function dateHTML(postData) {
+  var xmlSchemaData = postData.date_published;
   var options = {
     year: "numeric",
     month: "long",
     day: "numeric"
   };
-  var date = new Date(postPublishedAt).toLocaleDateString("en-US", options);
-  return "<time datetime=\"".concat(xmlSchemaData, "\" class=\"post-date\">").concat(date, "</time>");
+  var date = new Date(postData.date_published).toLocaleDateString("en-US", options);
+  return "\n    <time datetime=\"".concat(xmlSchemaData, "\" class=\"post-date\">\n      <a href=\"").concat(postData.url, "\" target=\"_blank\">").concat(date, "</a>\n    </time>\n  ");
 };
 
 /***/ }),

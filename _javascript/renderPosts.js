@@ -81,9 +81,7 @@ const longFormPostHTML = (postData) => {
 
   return `
     <div class="long-form-post">
-      <a href="${postData.url}" target="_blank">
-        ${dateHTML(postData.date_published)}
-      </a>
+      ${dateHTML(postData)}
       <a href="${url}">
         <h2 class="post-title">
           ${title}
@@ -101,9 +99,7 @@ const linkPostHTML = (postData) => {
 
   return `
     <div class="link-post">
-      <a href="${postData.url}" target="_blank">
-        ${dateHTML(postData.date_published)}
-      </a>
+      ${dateHTML(postData)}
       <h2><a href="${link}" target="_blank">${title}</a></h2>
     </div>
   `
@@ -117,19 +113,21 @@ const tweetPostHTML = (postData) => {
     <div class="short-form-post">
       <div class="colour-${colour}"></div>
       <div class="colour-dark-${colour}">
-        <a href="${postData.url}" target="_blank">
-          ${dateHTML(postData.date_published)}
-        </a>
+        ${dateHTML(postData)}
         ${content}
       </div>
     </div>
   `
 }
 
-const dateHTML = (postPublishedAt) => {
-  const xmlSchemaData = postPublishedAt;
+const dateHTML = (postData) => {
+  const xmlSchemaData = postData.date_published;
   const options = { year: "numeric", month: "long", day: "numeric" };
-  const date = new Date(postPublishedAt).toLocaleDateString("en-US", options);
+  const date = new Date(postData.date_published).toLocaleDateString("en-US", options);
 
-  return `<time datetime="${xmlSchemaData}" class="post-date">${date}</time>`
+  return(`
+    <time datetime="${xmlSchemaData}" class="post-date">
+      <a href="${postData.url}" target="_blank">${date}</a>
+    </time>
+  `)
 }
