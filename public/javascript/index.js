@@ -505,7 +505,7 @@ var dateHTML = function dateHTML(postData) {
     day: "numeric"
   };
   var date = new Date(postData.date_published).toLocaleDateString("en-US", options);
-  return "\n    <time datetime=\"".concat(xmlSchemaData, "\" class=\"post-date\">\n      <a href=\"").concat(postData.url, "\" target=\"_blank\">").concat(date, "</a>\n    </time>\n  ");
+  return "\n    <time datetime=\"".concat(xmlSchemaData, "\" class=\"post-date\">\n      <a href=\"").concat(postData.url, "\">").concat(date, "</a>\n    </time>\n  ");
 };
 
 /***/ }),

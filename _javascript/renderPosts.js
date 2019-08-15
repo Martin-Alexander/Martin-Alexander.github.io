@@ -127,7 +127,7 @@ const dateHTML = (postData) => {
 
   return(`
     <time datetime="${xmlSchemaData}" class="post-date">
-      <a href="${postData.url}" target="_blank">${date}</a>
+      <a href="${postData.url}">${date}</a>
     </time>
   `)
 }
