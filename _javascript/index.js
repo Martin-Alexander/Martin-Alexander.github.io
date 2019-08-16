@@ -2,10 +2,7 @@ import { setPosts } from "./setPosts";
 import { initializeMobileMenu } from "./mobileMenu";
 import { initializeInfiniteScroll } from "./infiniteScroll";
 import { initializeFilterByYear } from "./filterByYear";
-import { addArrowIconToLatest } from "./addArrowIconToLatest"
 import { initializeFilterByCategory } from "./filterByCategory";
-
-addArrowIconToLatest();
 
 export const getCategory = () => {
   let category;

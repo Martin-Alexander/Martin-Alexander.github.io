@@ -1,12 +1,21 @@
 import { setPosts } from "./setPosts";
+import { getYear } from "./index";
 
 export const initializeFilterByYear = (data, postList) => {
   const latestTag = document.querySelector("#latest");
   const yearsList = document.querySelector("#years");
   const footer = document.querySelector("footer");
   const main = document.querySelector("main");
+  const categoryButtons = document.querySelectorAll(".category");
 
   if ([latestTag, yearsList].some(element => element === null)) { return; }
+
+  const currentYear = getYear();
+
+  if (currentYear) {
+    latestTag.innerText = currentYear;
+    latestTag.classList.add("blue-highlight")
+  }
 
   const uniqueYears = Array.from(new Set(data.items.map(item => new Date(item.date_published).getFullYear())));
   uniqueYears.forEach((year) =>  {
@@ -40,14 +49,14 @@ export const initializeFilterByYear = (data, postList) => {
       url.pathname = "";
       url.search = `year=${year}`;
 
+      latestTag.innerText = year;
+
       document.title = `${year} · Matthew Bischoff`;
       window.history.pushState(document.title, document.title, url.toString());
 
       yearsList.style.height = "0px";
       yearsList.classList.toggle("show");
-      setTimeout(() => {
-        latestTag.classList.toggle("blue-highlight");
-      }, 200);
+      categoryButtons.forEach(btn => btn.classList.remove("blue-highlight"));
     });
   });
 
@@ -61,6 +70,6 @@ export const initializeFilterByYear = (data, postList) => {
       yearsList.style.height = "0px";
     }
 
-    latestTag.classList.toggle("blue-highlight");
+    latestTag.classList.add("blue-highlight");
   });
 }

@@ -34,29 +34,6 @@ header {
     justify-content: space-between;
   }
 
-  nav#categories {
-    &> div {
-      display: flex;
-      overflow-y: scroll;
-      height: 50px;
-      align-items: start;
-
-      &::-webkit-scrollbar { width: 0 !important; }
-      overflow: -moz-scrollbars-none;
-      -ms-overflow-style: none;
-    }
-
-
-    a {
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      margin-right: 10px;
-      color: $text-white;
-      line-height: initial;
-    }
-  }
-
   #banner-text-section {
     p {
       font-size: 18px;
@@ -89,10 +66,37 @@ header {
   margin-right: 10px;
 }
 
-#latest {
+#categories {
+  &> div {
+    display: flex;
+    overflow-y: scroll;
+    height: 50px;
+    align-items: start;
+
+    &::-webkit-scrollbar { width: 0 !important; }
+    overflow: -moz-scrollbars-none;
+    -ms-overflow-style: none;
+  }
+
+
+  a {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-right: 10px;
+    color: $text-white;
+    line-height: initial;
+  }
+}
+
+a#latest {
   width: 66px;
   text-align: right;
-  display: block !important;
+  display: block;
+
+  &.blue-highlight {
+    display: flex;
+  }
 }
 
 #years {

@@ -86,28 +86,6 @@
 /************************************************************************/
 /******/ ({
 
-/***/ "./_javascript/addArrowIconToLatest.js":
-/*!*********************************************!*\
-  !*** ./_javascript/addArrowIconToLatest.js ***!
-  \*********************************************/
-/*! exports provided: addArrowIconToLatest */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "addArrowIconToLatest", function() { return addArrowIconToLatest; });
-var addArrowIconToLatest = function addArrowIconToLatest() {
-  var latestTag = document.querySelector("#latest");
-
-  if (latestTag === null) {
-    return;
-  }
-
-  latestTag.insertAdjacentHTML("afterbegin", "<img id=\"carrot\" src=\"/assets/carrot.svg\" alt=\"\">");
-};
-
-/***/ }),
-
 /***/ "./_javascript/filterByCategory.js":
 /*!*****************************************!*\
   !*** ./_javascript/filterByCategory.js ***!
@@ -131,6 +109,7 @@ var initializeFilterByCategory = function initializeFilterByCategory(data, postL
   var categoryButtons = document.querySelectorAll(".category");
   var footer = document.querySelector("footer");
   var main = document.querySelector("main");
+  var latestTag = document.querySelector("#latest");
   categoryButtons.forEach(function (categoryButton) {
     categoryButton.addEventListener("click", function (event) {
       var categoryName = categoryButton.dataset.categoryName;
@@ -138,6 +117,7 @@ var initializeFilterByCategory = function initializeFilterByCategory(data, postL
       categoryButtons.forEach(function (btn) {
         return btn.classList.remove("blue-highlight");
       });
+      latestTag.classList.remove("blue-highlight");
       categoryButton.classList.add("blue-highlight");
       footer.style.opacity = "0";
       main.style.opacity = "0";
@@ -153,6 +133,11 @@ var initializeFilterByCategory = function initializeFilterByCategory(data, postL
       url.search = "";
       document.title = "".concat(capitalize__WEBPACK_IMPORTED_MODULE_1___default()(categoryName), " \xB7 Matthew Bischoff");
       window.history.pushState(document.title, document.title, url.toString());
+      var latestAndCarrotHtml = "<img id=\"carrot\" src=\"/assets/carrot.svg\" alt=\"\"><span>Latest</span>";
+
+      if (latestTag.innerHTML !== latestAndCarrotHtml) {
+        latestTag.innerHTML = latestAndCarrotHtml;
+      }
     });
   });
 };
@@ -170,17 +155,27 @@ var initializeFilterByCategory = function initializeFilterByCategory(data, postL
 __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "initializeFilterByYear", function() { return initializeFilterByYear; });
 /* harmony import */ var _setPosts__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./setPosts */ "./_javascript/setPosts.js");
+/* harmony import */ var _index__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./index */ "./_javascript/index.js");
+
 
 var initializeFilterByYear = function initializeFilterByYear(data, postList) {
   var latestTag = document.querySelector("#latest");
   var yearsList = document.querySelector("#years");
   var footer = document.querySelector("footer");
   var main = document.querySelector("main");
+  var categoryButtons = document.querySelectorAll(".category");
 
   if ([latestTag, yearsList].some(function (element) {
     return element === null;
   })) {
     return;
+  }
+
+  var currentYear = Object(_index__WEBPACK_IMPORTED_MODULE_1__["getYear"])();
+
+  if (currentYear) {
+    latestTag.innerText = currentYear;
+    latestTag.classList.add("blue-highlight");
   }
 
   var uniqueYears = Array.from(new Set(data.items.map(function (item) {
@@ -205,13 +200,14 @@ var initializeFilterByYear = function initializeFilterByYear(data, postList) {
       var url = new URL(location.href);
       url.pathname = "";
       url.search = "year=".concat(year);
+      latestTag.innerText = year;
       document.title = "".concat(year, " \xB7 Matthew Bischoff");
       window.history.pushState(document.title, document.title, url.toString());
       yearsList.style.height = "0px";
       yearsList.classList.toggle("show");
-      setTimeout(function () {
-        latestTag.classList.toggle("blue-highlight");
-      }, 200);
+      categoryButtons.forEach(function (btn) {
+        return btn.classList.remove("blue-highlight");
+      });
     });
   });
   latestTag.addEventListener("click", function (event) {
@@ -224,7 +220,7 @@ var initializeFilterByYear = function initializeFilterByYear(data, postList) {
       yearsList.style.height = "0px";
     }
 
-    latestTag.classList.toggle("blue-highlight");
+    latestTag.classList.add("blue-highlight");
   });
 };
 
@@ -245,8 +241,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _mobileMenu__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./mobileMenu */ "./_javascript/mobileMenu.js");
 /* harmony import */ var _infiniteScroll__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./infiniteScroll */ "./_javascript/infiniteScroll.js");
 /* harmony import */ var _filterByYear__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./filterByYear */ "./_javascript/filterByYear.js");
-/* harmony import */ var _addArrowIconToLatest__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./addArrowIconToLatest */ "./_javascript/addArrowIconToLatest.js");
-/* harmony import */ var _filterByCategory__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./filterByCategory */ "./_javascript/filterByCategory.js");
+/* harmony import */ var _filterByCategory__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./filterByCategory */ "./_javascript/filterByCategory.js");
 function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
 
 function _wrapRegExp(re, groups) { _wrapRegExp = function _wrapRegExp(re, groups) { return new BabelRegExp(re, groups); }; var _RegExp = _wrapNativeSuper(RegExp); var _super = RegExp.prototype; var _groups = new WeakMap(); function BabelRegExp(re, groups) { var _this = _RegExp.call(this, re); _groups.set(_this, groups); return _this; } _inherits(BabelRegExp, _RegExp); BabelRegExp.prototype.exec = function (str) { var result = _super.exec.call(this, str); if (result) result.groups = buildGroups(result, this); return result; }; BabelRegExp.prototype[Symbol.replace] = function (str, substitution) { if (typeof substitution === "string") { var groups = _groups.get(this); return _super[Symbol.replace].call(this, str, substitution.replace(/\$<([^>]+)>/g, function (_, name) { return "$" + groups[name]; })); } else if (typeof substitution === "function") { var _this = this; return _super[Symbol.replace].call(this, str, function () { var args = []; args.push.apply(args, arguments); if (_typeof(args[args.length - 1]) !== "object") { args.push(buildGroups(args, _this)); } return substitution.apply(this, args); }); } else { return _super[Symbol.replace].call(this, str, substitution); } }; function buildGroups(result, re) { var g = _groups.get(re); return Object.keys(g).reduce(function (groups, name) { groups[name] = result[g[name]]; return groups; }, Object.create(null)); } return _wrapRegExp.apply(this, arguments); }
@@ -274,8 +269,6 @@ function _getPrototypeOf(o) { _getPrototypeOf = Object.setPrototypeOf ? Object.g
 
 
 
-
-Object(_addArrowIconToLatest__WEBPACK_IMPORTED_MODULE_4__["addArrowIconToLatest"])();
 var getCategory = function getCategory() {
   var category;
   var categoryMatch = location.href.match(_wrapRegExp(/\/category\/(\w+)/, {
@@ -310,7 +303,7 @@ fetch("/feed.json").then(function (response) {
   Object(_setPosts__WEBPACK_IMPORTED_MODULE_0__["setPosts"])(data, postListElement);
   Object(_infiniteScroll__WEBPACK_IMPORTED_MODULE_2__["initializeInfiniteScroll"])(data, postListElement);
   Object(_filterByYear__WEBPACK_IMPORTED_MODULE_3__["initializeFilterByYear"])(data, postListElement);
-  Object(_filterByCategory__WEBPACK_IMPORTED_MODULE_5__["initializeFilterByCategory"])(data, postListElement);
+  Object(_filterByCategory__WEBPACK_IMPORTED_MODULE_4__["initializeFilterByCategory"])(data, postListElement);
   setTimeout(function () {
     main.style.opacity = "1";
     footer.style.opacity = "1";
@@ -340,8 +333,6 @@ __webpack_require__.r(__webpack_exports__);
 
 
 var initializeInfiniteScroll = function initializeInfiniteScroll(data, postListElement) {
-  var year = Object(_index__WEBPACK_IMPORTED_MODULE_1__["getYear"])();
-  var category = Object(_index__WEBPACK_IMPORTED_MODULE_1__["getCategory"])();
   var posts = document.querySelector(".posts");
 
   if (posts === null) {
@@ -349,6 +340,8 @@ var initializeInfiniteScroll = function initializeInfiniteScroll(data, postListE
   }
 
   window.addEventListener("scroll", function () {
+    var year = Object(_index__WEBPACK_IMPORTED_MODULE_1__["getYear"])();
+    var category = Object(_index__WEBPACK_IMPORTED_MODULE_1__["getCategory"])();
     var pixelsToBottomOfPage = document.body.clientHeight - window.scrollY - window.innerHeight;
 
     if (pixelsToBottomOfPage < 1500) {

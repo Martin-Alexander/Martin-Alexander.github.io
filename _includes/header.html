@@ -30,9 +30,13 @@
     <nav id="categories">
       <div>
         {% if page.url contains "/archive" %}
-          <a id="latest" class="button-round blue-highlight" href="/archive"><span>Latest</span></a>
+          <a id="latest" class="button-round blue-highlight" href="/archive">
+            <img id="carrot" src="/assets/carrot.svg" alt=""><span>Latest</span>
+          </a>
         {% else %}
-          <a id="latest" class="button-round" href="/archive"><span>Latest</span></a>
+          <a id="latest" class="button-round" href="/archive">
+            <img id="carrot" src="/assets/carrot.svg" alt=""><span>Latest</span>
+          </a>
         {% endif %}
 
         {% for category in site.categories %}
