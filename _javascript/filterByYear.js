@@ -32,6 +32,8 @@ export const initializeFilterByYear = (data, postList) => {
     yearButton.addEventListener("click", (event) => {
       const year = parseInt(yearButton.dataset.year);
 
+      if (!postList) { return; }
+
       event.preventDefault();
 
       footer.style.opacity = "0";

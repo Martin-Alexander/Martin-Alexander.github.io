@@ -187,6 +187,11 @@ var initializeFilterByYear = function initializeFilterByYear(data, postList) {
   document.querySelectorAll(".year").forEach(function (yearButton) {
     yearButton.addEventListener("click", function (event) {
       var year = parseInt(yearButton.dataset.year);
+
+      if (!postList) {
+        return;
+      }
+
       event.preventDefault();
       footer.style.opacity = "0";
       main.style.opacity = "0";
