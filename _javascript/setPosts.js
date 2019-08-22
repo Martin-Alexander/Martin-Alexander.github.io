@@ -5,6 +5,7 @@ export const setPosts = (data, postList) => {
   const year = getYear();
   const category = getCategory();
 
+
   const posts = document.querySelector(".posts");
   if (posts === null) { return; }
 

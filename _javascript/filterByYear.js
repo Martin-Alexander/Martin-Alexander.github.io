@@ -33,11 +33,11 @@ export const initializeFilterByYear = (data, postList) => {
       const year = parseInt(yearButton.dataset.year);
 
       if (!postList) { return; }
-
       event.preventDefault();
 
       footer.style.opacity = "0";
       main.style.opacity = "0";
+
 
       setTimeout(() => {
         setPosts(data, postList);

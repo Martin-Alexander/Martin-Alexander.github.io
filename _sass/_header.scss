@@ -71,6 +71,7 @@ header {
   &> div {
     display: flex;
     overflow-y: scroll;
+    overflow-y: hidden;
     height: 53px;
     align-items: start;
 
@@ -102,7 +103,7 @@ a#latest {
 #years {
   position: absolute;
   list-style: none;
-  padding-inline-start: 0px;
+  padding: 0px;
   width: 97px;
   text-align: center;
   transition: height 0.2s ease;

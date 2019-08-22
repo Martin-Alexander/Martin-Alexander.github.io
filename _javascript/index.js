@@ -6,8 +6,8 @@ import { initializeFilterByCategory } from "./filterByCategory";
 
 export const getCategory = () => {
   let category;
-  const categoryMatch = location.href.match(/\/category\/(?<category>\w+)/);
-  if (categoryMatch) { category = categoryMatch.groups.category }
+  const match = location.href.match(/\/category\/(\w+)/);
+  if (match) { category = match[1]; }
   return category;
 }
 
@@ -34,6 +34,7 @@ fetch("/feed.json").then(response => response.json()).then((data) => {
   setPosts(data, postListElement);
   initializeInfiniteScroll(data, postListElement)
   initializeFilterByYear(data, postListElement);
+
   initializeFilterByCategory(data, postListElement)
 
   setTimeout(() => {
