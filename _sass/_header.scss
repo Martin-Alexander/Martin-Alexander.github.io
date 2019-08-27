@@ -18,7 +18,7 @@ header {
   @media (max-width: $max-mobile-width) {
     padding: 0px;
     background-image: url(/assets/hero-image.jpg);
-    background-position-x: 85%;
+    background-position-x: 60%;
   }
 
   h1, h2 {
@@ -57,8 +57,7 @@ header {
 
   @media (max-width: $max-mobile-width) {
     padding: 0px;
-    min-height: 250px;
-    height: 50vw;
+    min-height: 375px;
   }
 }
 
@@ -145,5 +144,9 @@ a#latest {
 }
 
 #mobile-header-text {
-  margin-top: 40px;
+  h1 {
+    margin-bottom: 30px;
+    margin-top: 22px;
+    font-size: 28px;
+  }
 }

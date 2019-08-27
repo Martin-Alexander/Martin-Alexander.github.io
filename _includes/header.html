@@ -27,6 +27,10 @@
       <h1>{{ site.text_content.header_title }}</h1>
       <p>{{ site.text_content.subtitle }}</p>
     </div>
+    <div class="wrapper mobile-only" id="mobile-header-text">
+      <h1>Hey, I’m<br>Matthew Bischoff</h1>
+      <p>{{ site.text_content.short_subtitle }}</p>
+    </div>
     <nav id="categories">
       <div>
         {% if page.url contains "/archive" %}
@@ -64,9 +68,4 @@
     <a href="/now">/Now</a>
     <a href="https://lickability.com/">Lickability</a>
   </div>
-</div>
-
-<div class="wrapper mobile-only" id="mobile-header-text">
-  <h1>{{ site.text_content.header_title }}</h1>
-  <p>{{ site.text_content.subtitle }}</p>
 </div>
