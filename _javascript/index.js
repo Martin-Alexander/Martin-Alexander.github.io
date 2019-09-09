@@ -5,15 +5,49 @@ import { initializeFilterByYear } from "./filterByYear";
 import { initializeFilterByCategory } from "./filterByCategory";
 
 export const getCategory = () => {
-  let category;
-  const match = location.href.match(/\/category\/(\w+)/);
-  if (match) { category = match[1]; }
-  return category;
+  const category = document.querySelector("meta[name='category']").content;
+  return category !== "" ? category : null;
+}
+
+export const setCategory = (category) => {
+  const metaTag = document.querySelector("meta[name='category']");
+  metaTag.setAttribute("content", category);
+}
+
+export const removeCategory = () => {
+  const metaTag = document.querySelector("meta[name='category']");
+  metaTag.removeAttribute("content");
 }
 
 export const getYear = () => {
-  const year = new URL(location.href).searchParams.get("year");
-  return year;
+  const year = document.querySelector("meta[name='year']").content;
+  return year !== "" ? parseInt(year) : null;
+}
+
+export const setYear = (year) => {
+  const metaTag = document.querySelector("meta[name='year']");
+  metaTag.setAttribute("content", year);
+}
+
+export const removeYear = () => {
+  const metaTag = document.querySelector("meta[name='year']");
+  metaTag.removeAttribute("content");
+}
+
+// Set initial year
+const year = new URL(location.href).searchParams.get("year");
+if (year) {
+  document.head.insertAdjacentHTML("beforeend", `<meta name="year" content="${year}">`);
+} else {
+  document.head.insertAdjacentHTML("beforeend", `<meta name="year">`);
+}
+
+// Set initial category
+const match = location.href.match(/\/category\/(\w+)/);
+if (match) {
+  document.head.insertAdjacentHTML("beforeend", `<meta name="category" content="${match[1]}">`);
+} else {
+  document.head.insertAdjacentHTML("beforeend", `<meta name="category">`);
 }
 
 const postListElement = document.querySelector(".posts");

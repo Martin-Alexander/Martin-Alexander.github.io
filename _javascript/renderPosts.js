@@ -31,9 +31,10 @@ export const renderNewPost = (postData, postList) => {
 
       const url = new URL(location.href);
       url.pathname = postData.url;
+      url.search = "";
 
       document.title = `${postData.title} · Matthew Bischoff`;
-      window.history.pushState(document.title, document.title, url.toString());
+      window.history.replaceState(document.title, document.title, url.toString());
 
       readMoreButton.remove();
     });

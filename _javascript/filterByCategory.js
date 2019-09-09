@@ -1,5 +1,7 @@
 import { setPosts } from "./setPosts";
 import capitalize from "capitalize";
+import { setCategory, removeYear } from ".";
+import { retractYearList } from "./filterByYear";
 
 export const initializeFilterByCategory = (data, postList) => {
   if (!postList) { return; }
@@ -12,6 +14,8 @@ export const initializeFilterByCategory = (data, postList) => {
   categoryButtons.forEach((categoryButton) => {
     categoryButton.addEventListener("click", (event) => {
       const categoryName = categoryButton.dataset.categoryName;
+      setCategory(categoryName);
+      removeYear();
       event.preventDefault();
 
       categoryButtons.forEach(btn => btn.classList.remove("blue-highlight"));
@@ -34,13 +38,11 @@ export const initializeFilterByCategory = (data, postList) => {
       url.search = "";
 
       document.title = `${capitalize(categoryName)} · Matthew Bischoff`;
-      window.history.pushState(document.title, document.title, url.toString());
+      window.history.replaceState(document.title, document.title, url.toString());
 
       const latestAndCarrotHtml = `<img id="carrot" src="/assets/carrot.svg" alt=""><span>Latest</span>`;
-
-      if (latestTag.innerHTML !== latestAndCarrotHtml) {
-        latestTag.innerHTML = latestAndCarrotHtml;
-      }
+      if (latestTag.innerHTML !== latestAndCarrotHtml) { latestTag.innerHTML = latestAndCarrotHtml }
+      retractYearList();
     });
   });
 }

@@ -99,6 +99,10 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _setPosts__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./setPosts */ "./_javascript/setPosts.js");
 /* harmony import */ var capitalize__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! capitalize */ "./node_modules/capitalize/index.js");
 /* harmony import */ var capitalize__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(capitalize__WEBPACK_IMPORTED_MODULE_1__);
+/* harmony import */ var ___WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! . */ "./_javascript/index.js");
+/* harmony import */ var _filterByYear__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./filterByYear */ "./_javascript/filterByYear.js");
+
+
 
 
 var initializeFilterByCategory = function initializeFilterByCategory(data, postList) {
@@ -113,6 +117,8 @@ var initializeFilterByCategory = function initializeFilterByCategory(data, postL
   categoryButtons.forEach(function (categoryButton) {
     categoryButton.addEventListener("click", function (event) {
       var categoryName = categoryButton.dataset.categoryName;
+      Object(___WEBPACK_IMPORTED_MODULE_2__["setCategory"])(categoryName);
+      Object(___WEBPACK_IMPORTED_MODULE_2__["removeYear"])();
       event.preventDefault();
       categoryButtons.forEach(function (btn) {
         return btn.classList.remove("blue-highlight");
@@ -132,12 +138,14 @@ var initializeFilterByCategory = function initializeFilterByCategory(data, postL
       url.pathname = "category/".concat(categoryName);
       url.search = "";
       document.title = "".concat(capitalize__WEBPACK_IMPORTED_MODULE_1___default()(categoryName), " \xB7 Matthew Bischoff");
-      window.history.pushState(document.title, document.title, url.toString());
+      window.history.replaceState(document.title, document.title, url.toString());
       var latestAndCarrotHtml = "<img id=\"carrot\" src=\"/assets/carrot.svg\" alt=\"\"><span>Latest</span>";
 
       if (latestTag.innerHTML !== latestAndCarrotHtml) {
         latestTag.innerHTML = latestAndCarrotHtml;
       }
+
+      Object(_filterByYear__WEBPACK_IMPORTED_MODULE_3__["retractYearList"])();
     });
   });
 };
@@ -148,19 +156,22 @@ var initializeFilterByCategory = function initializeFilterByCategory(data, postL
 /*!*************************************!*\
   !*** ./_javascript/filterByYear.js ***!
   \*************************************/
-/*! exports provided: initializeFilterByYear */
+/*! exports provided: initializeFilterByYear, extendYearList, retractYearList */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "initializeFilterByYear", function() { return initializeFilterByYear; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "extendYearList", function() { return extendYearList; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "retractYearList", function() { return retractYearList; });
 /* harmony import */ var _setPosts__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./setPosts */ "./_javascript/setPosts.js");
 /* harmony import */ var _index__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./index */ "./_javascript/index.js");
 
 
+var latestTag = document.querySelector("#latest");
+var yearsList = document.querySelector("#years");
+var uniqueYears;
 var initializeFilterByYear = function initializeFilterByYear(data, postList) {
-  var latestTag = document.querySelector("#latest");
-  var yearsList = document.querySelector("#years");
   var footer = document.querySelector("footer");
   var main = document.querySelector("main");
   var categoryButtons = document.querySelectorAll(".category");
@@ -178,7 +189,7 @@ var initializeFilterByYear = function initializeFilterByYear(data, postList) {
     latestTag.classList.add("blue-highlight");
   }
 
-  var uniqueYears = Array.from(new Set(data.items.map(function (item) {
+  uniqueYears = Array.from(new Set(data.items.map(function (item) {
     return new Date(item.date_published).getFullYear();
   })));
   uniqueYears.forEach(function (year) {
@@ -187,6 +198,8 @@ var initializeFilterByYear = function initializeFilterByYear(data, postList) {
   document.querySelectorAll(".year").forEach(function (yearButton) {
     yearButton.addEventListener("click", function (event) {
       var year = parseInt(yearButton.dataset.year);
+      Object(_index__WEBPACK_IMPORTED_MODULE_1__["setYear"])(year);
+      Object(_index__WEBPACK_IMPORTED_MODULE_1__["removeCategory"])();
 
       if (!postList) {
         return;
@@ -207,7 +220,7 @@ var initializeFilterByYear = function initializeFilterByYear(data, postList) {
       url.search = "year=".concat(year);
       latestTag.innerText = year;
       document.title = "".concat(year, " \xB7 Matthew Bischoff");
-      window.history.pushState(document.title, document.title, url.toString());
+      window.history.replaceState(document.title, document.title, url.toString());
       yearsList.style.height = "0px";
       yearsList.classList.toggle("show");
       categoryButtons.forEach(function (btn) {
@@ -217,16 +230,23 @@ var initializeFilterByYear = function initializeFilterByYear(data, postList) {
   });
   latestTag.addEventListener("click", function (event) {
     event.preventDefault();
-    yearsList.classList.toggle("show");
 
     if (yearsList.classList.contains("show")) {
-      yearsList.style.height = "".concat(uniqueYears.length * 38, "px");
+      retractYearList();
     } else {
-      yearsList.style.height = "0px";
+      extendYearList();
     }
-
-    latestTag.classList.add("blue-highlight");
   });
+};
+var extendYearList = function extendYearList() {
+  yearsList.style.height = "".concat(uniqueYears.length * 38, "px");
+  latestTag.classList.add("blue-highlight");
+  yearsList.classList.add("show");
+};
+var retractYearList = function retractYearList() {
+  yearsList.style.height = "0px";
+  latestTag.classList.remove("blue-highlight");
+  yearsList.classList.remove("show");
 };
 
 /***/ }),
@@ -235,13 +255,17 @@ var initializeFilterByYear = function initializeFilterByYear(data, postList) {
 /*!******************************!*\
   !*** ./_javascript/index.js ***!
   \******************************/
-/*! exports provided: getCategory, getYear */
+/*! exports provided: getCategory, setCategory, removeCategory, getYear, setYear, removeYear */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "getCategory", function() { return getCategory; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "setCategory", function() { return setCategory; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "removeCategory", function() { return removeCategory; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "getYear", function() { return getYear; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "setYear", function() { return setYear; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "removeYear", function() { return removeYear; });
 /* harmony import */ var _setPosts__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./setPosts */ "./_javascript/setPosts.js");
 /* harmony import */ var _mobileMenu__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./mobileMenu */ "./_javascript/mobileMenu.js");
 /* harmony import */ var _infiniteScroll__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./infiniteScroll */ "./_javascript/infiniteScroll.js");
@@ -253,19 +277,47 @@ __webpack_require__.r(__webpack_exports__);
 
 
 var getCategory = function getCategory() {
-  var category;
-  var match = location.href.match(/\/category\/(\w+)/);
-
-  if (match) {
-    category = match[1];
-  }
-
-  return category;
+  var category = document.querySelector("meta[name='category']").content;
+  return category !== "" ? category : null;
+};
+var setCategory = function setCategory(category) {
+  var metaTag = document.querySelector("meta[name='category']");
+  metaTag.setAttribute("content", category);
+};
+var removeCategory = function removeCategory() {
+  var metaTag = document.querySelector("meta[name='category']");
+  metaTag.removeAttribute("content");
 };
 var getYear = function getYear() {
-  var year = new URL(location.href).searchParams.get("year");
-  return year;
+  var year = document.querySelector("meta[name='year']").content;
+  return year !== "" ? parseInt(year) : null;
 };
+var setYear = function setYear(year) {
+  var metaTag = document.querySelector("meta[name='year']");
+  metaTag.setAttribute("content", year);
+};
+var removeYear = function removeYear() {
+  var metaTag = document.querySelector("meta[name='year']");
+  metaTag.removeAttribute("content");
+}; // Set initial year
+
+var year = new URL(location.href).searchParams.get("year");
+
+if (year) {
+  document.head.insertAdjacentHTML("beforeend", "<meta name=\"year\" content=\"".concat(year, "\">"));
+} else {
+  document.head.insertAdjacentHTML("beforeend", "<meta name=\"year\">");
+} // Set initial category
+
+
+var match = location.href.match(/\/category\/(\w+)/);
+
+if (match) {
+  document.head.insertAdjacentHTML("beforeend", "<meta name=\"category\" content=\"".concat(match[1], "\">"));
+} else {
+  document.head.insertAdjacentHTML("beforeend", "<meta name=\"category\">");
+}
+
 var postListElement = document.querySelector(".posts");
 var main = document.querySelector("main");
 var footer = document.querySelector("footer");
@@ -422,8 +474,9 @@ var renderNewPost = function renderNewPost(postData, postList) {
       }, 100);
       var url = new URL(location.href);
       url.pathname = postData.url;
+      url.search = "";
       document.title = "".concat(postData.title, " \xB7 Matthew Bischoff");
-      window.history.pushState(document.title, document.title, url.toString());
+      window.history.replaceState(document.title, document.title, url.toString());
       readMoreButton.remove();
     });
   }

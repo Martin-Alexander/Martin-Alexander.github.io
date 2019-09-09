@@ -1,9 +1,11 @@
 import { setPosts } from "./setPosts";
-import { getYear } from "./index";
+import { getYear, setYear, removeCategory } from "./index";
+
+const latestTag = document.querySelector("#latest");
+const yearsList = document.querySelector("#years");
+let uniqueYears;
 
 export const initializeFilterByYear = (data, postList) => {
-  const latestTag = document.querySelector("#latest");
-  const yearsList = document.querySelector("#years");
   const footer = document.querySelector("footer");
   const main = document.querySelector("main");
   const categoryButtons = document.querySelectorAll(".category");
@@ -17,7 +19,7 @@ export const initializeFilterByYear = (data, postList) => {
     latestTag.classList.add("blue-highlight")
   }
 
-  const uniqueYears = Array.from(new Set(data.items.map(item => new Date(item.date_published).getFullYear())));
+  uniqueYears = Array.from(new Set(data.items.map(item => new Date(item.date_published).getFullYear())));
   uniqueYears.forEach((year) =>  {
     yearsList.insertAdjacentHTML("beforeend", `
       <li class="button-round">
@@ -31,13 +33,14 @@ export const initializeFilterByYear = (data, postList) => {
   document.querySelectorAll(".year").forEach((yearButton) => {
     yearButton.addEventListener("click", (event) => {
       const year = parseInt(yearButton.dataset.year);
+      setYear(year);
+      removeCategory();
 
       if (!postList) { return; }
       event.preventDefault();
 
       footer.style.opacity = "0";
       main.style.opacity = "0";
-
 
       setTimeout(() => {
         setPosts(data, postList);
@@ -54,7 +57,7 @@ export const initializeFilterByYear = (data, postList) => {
       latestTag.innerText = year;
 
       document.title = `${year} · Matthew Bischoff`;
-      window.history.pushState(document.title, document.title, url.toString());
+      window.history.replaceState(document.title, document.title, url.toString());
 
       yearsList.style.height = "0px";
       yearsList.classList.toggle("show");
@@ -65,13 +68,22 @@ export const initializeFilterByYear = (data, postList) => {
   latestTag.addEventListener("click", (event) => {
     event.preventDefault();
 
-    yearsList.classList.toggle("show");
     if (yearsList.classList.contains("show")) {
-      yearsList.style.height = `${uniqueYears.length * 38}px`;
+      retractYearList();
     } else {
-      yearsList.style.height = "0px";
+      extendYearList();
     }
-
-    latestTag.classList.add("blue-highlight");
   });
+}
+
+export const extendYearList = () => {
+  yearsList.style.height = `${uniqueYears.length * 38}px`;
+  latestTag.classList.add("blue-highlight");
+  yearsList.classList.add("show");
+}
+
+export const retractYearList = () => {
+  yearsList.style.height = "0px";
+  latestTag.classList.remove("blue-highlight");
+  yearsList.classList.remove("show");
 }
