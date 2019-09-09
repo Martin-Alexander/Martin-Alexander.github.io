@@ -16,6 +16,11 @@ p, ul {
   font-size: 1.2em;
   line-height: 30px;
   font-weight: 300;
+
+  @media (max-width: $max-mobile-width) {
+    font-size: 17px;
+    line-height: 27px;
+  }
 }
 
 h1, h2 {
@@ -38,6 +43,12 @@ blockquote {
   @media (max-width: $max-mobile-width) {
     margin-inline-start: 20px;
     margin-inline-end: 20px;
+  }
+}
+
+audio {
+  @media (max-width: $max-mobile-width) {
+    width: 100%;
   }
 }
 
