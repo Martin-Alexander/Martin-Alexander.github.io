@@ -92,6 +92,9 @@ if (window.innerWidth < 700) {
   img.src = "/assets/hero-image.jpg";
   img.onload = () => {
     nav.style.left = "0px";
-    setTimeout(() => { nav.style.width = "initial" }, 800); // wait for css animation to finish
+    setTimeout(() => {
+      nav.style.width = "initial";
+      nav.parentElement.style.overflowX = "visible";
+    }, 800); // wait for css animation to finish
   }
 }

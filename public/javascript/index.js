@@ -358,6 +358,7 @@ if (window.innerWidth < 700) {
     nav.style.left = "0px";
     setTimeout(function () {
       nav.style.width = "initial";
+      nav.parentElement.style.overflowX = "visible";
     }, 800); // wait for css animation to finish
   };
 }
