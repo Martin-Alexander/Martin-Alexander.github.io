@@ -84,6 +84,10 @@ video {
 main {
   margin: 68px auto 0px auto;
 
+  @media (max-width: $max-mobile-width) {
+    margin: 38px auto 0px auto;
+  }
+
   img {
     width: 100%;
   }

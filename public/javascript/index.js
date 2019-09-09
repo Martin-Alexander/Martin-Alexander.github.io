@@ -347,7 +347,20 @@ fetch("/feed.json").then(function (response) {
     footer.style.opacity = "1";
   }, 100);
 });
-Object(_mobileMenu__WEBPACK_IMPORTED_MODULE_1__["initializeMobileMenu"])();
+Object(_mobileMenu__WEBPACK_IMPORTED_MODULE_1__["initializeMobileMenu"])(); // Navbar scroll into view on mobile
+
+if (window.innerWidth < 700) {
+  var nav = document.querySelector("#categories>div");
+  var img = new Image();
+  img.src = "/assets/hero-image.jpg";
+
+  img.onload = function () {
+    nav.style.left = "0px";
+    setTimeout(function () {
+      nav.style.width = "initial";
+    }, 800); // wait for css animation to finish
+  };
+}
 
 /***/ }),
 

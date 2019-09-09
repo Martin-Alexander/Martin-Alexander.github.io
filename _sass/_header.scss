@@ -67,6 +67,8 @@ header {
 }
 
 #categories {
+  overflow-x: hidden;
+
   &> div {
     display: flex;
     overflow-y: scroll;
@@ -74,9 +76,17 @@ header {
     height: 53px;
     align-items: start;
 
+    -webkit-overflow-scrolling: touch;
     &::-webkit-scrollbar { width: 0 !important; }
     overflow: -moz-scrollbars-none;
     -ms-overflow-style: none;
+
+    @media (max-width: $max-mobile-width) {
+      position: relative;
+      left: -30px;
+      width: calc(100% + 30px);
+      transition: left 0.8s ease;
+    }
   }
 
 

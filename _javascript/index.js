@@ -83,3 +83,15 @@ fetch("/feed.json").then(response => response.json()).then((data) => {
 })
 
 initializeMobileMenu();
+
+// Navbar scroll into view on mobile
+if (window.innerWidth < 700) {
+  const nav = document.querySelector("#categories>div")
+
+  const img = new Image();
+  img.src = "/assets/hero-image.jpg";
+  img.onload = () => {
+    nav.style.left = "0px";
+    setTimeout(() => { nav.style.width = "initial" }, 800); // wait for css animation to finish
+  }
+}
