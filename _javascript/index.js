@@ -1,7 +1,7 @@
 import { setPosts } from "./setPosts";
 import { initializeMobileMenu } from "./mobileMenu";
 import { initializeInfiniteScroll } from "./infiniteScroll";
-import { initializeFilterByYear } from "./filterByYear";
+import { initializeFilterByYear, retractYearList } from "./filterByYear";
 import { initializeFilterByCategory } from "./filterByCategory";
 
 export const getCategory = () => {
@@ -101,3 +101,5 @@ if (window.innerWidth < 700) {
   nav.style.width = "initial";
   nav.parentElement.style.overflowX = "visible";
 }
+
+nav.addEventListener("scroll", retractYearList);
