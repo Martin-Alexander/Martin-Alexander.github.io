@@ -349,8 +349,9 @@ fetch("/feed.json").then(function (response) {
 });
 Object(_mobileMenu__WEBPACK_IMPORTED_MODULE_1__["initializeMobileMenu"])(); // Navbar scroll into view on mobile
 
+var nav = document.querySelector("#categories>div");
+
 if (window.innerWidth < 700) {
-  var nav = document.querySelector("#categories>div");
   var img = new Image();
   img.src = "/assets/hero-image.jpg";
 
@@ -361,6 +362,9 @@ if (window.innerWidth < 700) {
       nav.parentElement.style.overflowX = "visible";
     }, 800); // wait for css animation to finish
   };
+} else {
+  nav.style.width = "initial";
+  nav.parentElement.style.overflowX = "visible";
 }
 
 /***/ }),

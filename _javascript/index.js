@@ -85,9 +85,9 @@ fetch("/feed.json").then(response => response.json()).then((data) => {
 initializeMobileMenu();
 
 // Navbar scroll into view on mobile
-if (window.innerWidth < 700) {
-  const nav = document.querySelector("#categories>div")
+const nav = document.querySelector("#categories>div");
 
+if (window.innerWidth < 700) {
   const img = new Image();
   img.src = "/assets/hero-image.jpg";
   img.onload = () => {
@@ -97,4 +97,7 @@ if (window.innerWidth < 700) {
       nav.parentElement.style.overflowX = "visible";
     }, 800); // wait for css animation to finish
   }
+} else {
+  nav.style.width = "initial";
+  nav.parentElement.style.overflowX = "visible";
 }
