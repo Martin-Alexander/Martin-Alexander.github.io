@@ -367,6 +367,8 @@ if (window.innerWidth < 700) {
   nav.parentElement.style.overflowX = "visible";
 }
 
+nav.addEventListener("scroll", _filterByYear__WEBPACK_IMPORTED_MODULE_3__["retractYearList"]);
+
 /***/ }),
 
 /***/ "./_javascript/infiniteScroll.js":

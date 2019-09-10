@@ -8,11 +8,6 @@ collections:
   uploads:
     title: Uploads
     output: true
-defaults:
-- scope:
-    path: ''
-  values:
-    image: "/uploads/matthew.jpg"
 permalink: "/:title/"
 url: https://Martin-Alexander.github.io
 paginate: 5
@@ -22,8 +17,7 @@ author:
   url: https://twitter.com/mb
   email: mb@matthewbischoff.com
   twitter: mb
-description: Hey, I’m <a href="/about">Matt</a>. I write
-  software in New York.
+description: Hey, I’m <a href="/about">Matt</a>. I write software in New York.
 logo: "/uploads/matthew.jpg"
 version: 0.4
 license:
