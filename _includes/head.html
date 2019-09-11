@@ -53,7 +53,7 @@
 	{% if page.description %}
 	<meta name="twitter:description" content="{{ page.description }}">
 	{% else %}
-	<meta name="twitter:description" content="{{ site.text_content.subtitle }}">
+	<meta name="twitter:description" content="{{ site.text_content.header_title }} {{ site.text_content.subtitle }}">
 	{% endif %}
 	{% if page.image %}
 	<meta name="twitter:image:src" content="{{ site.url }}/uploads/{{ page.image }}">
@@ -77,7 +77,7 @@
 	{% if page.description %}
 	<meta content="{{ page.description | xml_escape }}" property="og:description">
 	{% else %}
-	<meta content="{{ site.text_content.subtitle | xml_escape }}" property="og:description">
+	<meta content="{{ site.text_content.header_title }} {{ site.text_content.subtitle | xml_escape }}" property="og:description">
 	{% endif %}
 	{% if page.url %}
 	<meta content="{{ site.url }}{{ page.url }}" property="og:url">
