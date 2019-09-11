@@ -1,9 +1,7 @@
 ---
 title: NSNorth
 date: 2019-04-09 17:30:00 -04:00
-categories:
-- talks
-- tech
+layout: post
 tags:
 - conferences
 - canada
@@ -13,7 +11,6 @@ image: nsnorth-2019-at-the-st-james-theatre-old-montreal.jpg
 description: Later this month, I’ll be heading north to speak at NSNorth 2019. NSNorth
   is Canada’s premier independent Apple developer and designer conference. Get tickets
   today.
-layout: post
 ---
 
 ![nsnorth-2019-at-the-st-james-theatre-old-montreal.jpg](/uploads/nsnorth-2019-at-the-st-james-theatre-old-montreal.jpg)
@@ -28,6 +25,6 @@ My talk is called _Growing Pains_ and it’s about the things that break as your
 <audio src="http://casgrain.net/podcasts/NSNorth_57-Matthew_Bischoff.mp3" controls preload></audio>
 </center>
 
-<!-- more -->
+<hr>
 
 Finally, the organizers have announced that this is the last year for NSNorth for the foreseeable future, so if you’ve always wanted to attend, now’s your chance. If you need help convincing your boss to cover the cost, they’ve [got you covered](https://nsnorth.ca/convince-your-boss.pdf). **[Tickets are on sale](https://tickets.nsnorth.ca) until this Friday, April 12, so act fast.** _Je vais te voir là-bas!_ 👋

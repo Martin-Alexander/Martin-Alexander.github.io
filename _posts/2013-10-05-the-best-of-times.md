@@ -2,10 +2,6 @@
 title: The Best of Times
 date: 2013-10-05 01:00:00 -04:00
 layout: post
-categories:
-- management
-- culture
-- tech
 ---
 
 ![The New York Times Building](/assets/nytimes_building.jpg)
@@ -17,8 +13,6 @@ A month ago, on September 4th, I finished my last day as a senior iOS engineer a
 Those of you who’ve been paying attention know that the Times is one of the leading forces in online journalism. Respected [designers](http://subtraction.com), [technologists](http://ashkenas.com), and [digital journalists](http://aronpilhofer.com) work together to produce one of the world’s best news reports and they do it every single day. It's truly an amazing place to be. If you're interested in that, I'm sure they have [an opening for you](http://jobs.nytco.com/go/technical-jobs/348193/).
 
 I found out about the job while I was still studying Human-Computer Interaction at [NJIT](http://njit.edu). I saw the posting on Twitter because I was following [Ben Jackson](http://90wpm.com), who worked on the team, and decided to apply even though I thought I’d never get the job.
-
-<!-- more -->
 
 In the interview, I remember two of the senior engineers on the team asking me why I wanted to work at The New York Times.
 
