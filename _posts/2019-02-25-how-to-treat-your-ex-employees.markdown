@@ -21,6 +21,8 @@ When you’re a manager, the way you treat the people that _were_ on your team m
 
 How should you treat the people you used to work with, so you won’t leave a bad taste in their mouth? Here are a few do’s and don’ts I’ve picked up from my own ex-managers over the last decade or so. Disclaimer: this advice won’t apply to every situation, including if an employee left or was pushed out on bad terms.
 
+<!-- more -->
+
 ## What to Do
 
  **Let them leave with dignity.** [A CTO I really respect](https://twitter.com/brimurph) taught me that letting people take the time they need to say their goodbyes and tie up loose ends, without rushing them out the door, pays dividends. He gave me the great advice to spend my last day on the job having coffee with everyone that had an impact on me, thanking them, and exchanging contact info.
