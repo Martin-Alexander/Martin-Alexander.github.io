@@ -1,6 +1,5 @@
 ---
 title: How to Treat Ex-Employees
-date: 2019-02-25 16:50:00 -05:00
 categories:
 - tech
 - culture
@@ -11,7 +10,7 @@ description: Many managers think a lot about how they treat their team, but few 
 layout: post
 ---
 
-![Fire Pit](/assets/firepit.jpg)
+![Fire Pit](/uploads/firepit.jpg)
 
 It’s Julie’s last day at work. She’s already turned in her laptop to IT, sent her goodbye email to the team, and is wrapping up her last knowledge transfer meeting. Tonight, there’s a goodbye drinks with the whole engineering department at that bar everyone loves across the street from the office. You’ve followed all the processes as a manager to offboard this person correctly, and wished them good luck at their shiny new job with more stock options and a higher salary you just couldn’t match. “Good for her,” you think, as the night winds down over a final round of cocktails. But wait – you’re not done yet.
 
@@ -20,8 +19,6 @@ It’s Julie’s last day at work. She’s already turned in her laptop to IT, s
 When you’re a manager, the way you treat the people that _were_ on your team matters almost as much as how you treat the people that _are_. Your ex-employees are the people out there talking the most about your company and your team. They’re the people that get DMed when a new recruit is trying to find out what it was _really like_ to work for your company and for you. And handled really well, ex-employees are often great folks for you to tap in a few years for the new team or company you’re working on, when they’re ready for a new challenge.
 
 How should you treat the people you used to work with, so you won’t leave a bad taste in their mouth? Here are a few do’s and don’ts I’ve picked up from my own ex-managers over the last decade or so. Disclaimer: this advice won’t apply to every situation, including if an employee left or was pushed out on bad terms.
-
-<!-- more -->
 
 ## What to Do
 

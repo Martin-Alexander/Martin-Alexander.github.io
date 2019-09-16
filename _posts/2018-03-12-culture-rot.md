@@ -1,6 +1,5 @@
 ---
 title: Culture Rot
-date: 2018-03-12 16:00:00 -04:00
 layout: post
 description: A talk at the Difficult to Name reading series about the disappearing
   web and what we can do to stop it.
@@ -19,8 +18,6 @@ I want to tell you about a number that scares me: 404. That infamous code you se
 I’m curious though: **how many of you have ever made something you’re proud of on the Web?**
 
 So many of us have written, recorded, photographed, or created important works in our personal and professional worlds that live online. Maybe they’re your bylines at that fancy publication about tiny houses, or your YouTube seltzer reviews, or your graduate thesis about the history of pizza ovens. It’s not really important what they are, just that they exist and they’re online.
-
-<!-- more -->
 
 Well, until…they don’t. 404: Page Not found. 410: Gone. 500: Internal Server Error. These numbers, or status codes, tell us *what* went wrong but not really *why*. This problem, the problem of the disappearing internet, of “link rot”, is no joke. Researchers have found that over [50% of URLs cited in Supreme Court opinions](http://www.nytimes.com/2013/09/24/us/politics/in-supreme-court-opinions-clicks-that-lead-nowhere.html) no longer point to the intended content. Roughly 70% of links in academic legal journals are broken, and 20% of all science, technology and medicine articles suffer from link rot. The [average life of a webpage](https://blogs.loc.gov/thesignal/2011/11/the-average-lifespan-of-a-webpage/) hovers right around 100 days.
 

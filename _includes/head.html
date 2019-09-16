@@ -58,7 +58,7 @@
 	{% if page.image %}
 	<meta name="twitter:image:src" content="{{ site.url }}/uploads/{{ page.image }}">
 	{% else %}
-	<meta name="twitter:image:src" content="{{ site.url }}/assets/twitter-share-card.jpg">
+	<meta name="twitter:image:src" content="{{ site.url }}/uploads/twitter-share-card.jpg">
 	{% endif %}
 
 	<!-- Facebook Open Graph -->
@@ -89,7 +89,7 @@
 	{% if page.image %}
 	<meta content="{{ site.url }}/uploads/{{ page.image }}" property="og:image">
 	{% else %}
-	<meta content="{{ site.url }}/assets/hero-image.jpg" property="og:image">
+	<meta content="{{ site.url }}/uploads/hero-image.jpg" property="og:image">
 	{% endif %}
 	{% if page.categories %}
 	{% for category in page.categories limit:1 %}

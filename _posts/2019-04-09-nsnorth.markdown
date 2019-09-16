@@ -1,6 +1,5 @@
 ---
 title: NSNorth
-date: 2019-04-09 17:30:00 -04:00
 layout: post
 tags:
 - conferences
@@ -20,8 +19,6 @@ Last March, I gave a [7-minute speech at a reading series](https://matthewbischo
 Later this month, I’ll be heading north to speak at (the appropriately named) NSNorth 2019. NSNorth is Canada’s premier independent Apple developer and designer conference, and like [Çingleton](http://cingleton.com) in years past, it’s taking place in beautiful Montréal, Québec. I’ve never been to this conference before, but I’ve met the organizers at other events, and I’ve heard great things.
 
 My talk is called _Growing Pains_ and it’s about the things that break as your software team or [company](https://lickability.com) gets bigger and what you can do to make that a less painful process. If you’d like to hear more about the conference and my experience on the topic, [Dan](https://twitter.com/_danbyers) and [Phil](https://twitter.com/philippec) interviewed me on the [NSNorth Podcast](https://itunes.apple.com/us/podcast/the-nsnorth-podcast/id599959952?mt=2). Give it a listen below or wherever you get your podcasts:
-
-<!-- more -->
 
 <center>
 <audio src="http://casgrain.net/podcasts/NSNorth_57-Matthew_Bischoff.mp3" controls preload></audio>

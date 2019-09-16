@@ -1,6 +1,5 @@
 ---
 title: Impossible Ideas
-date: 2019-01-15 18:00:00 -05:00
 layout: post
 description: The talk I show to every software engineer who says it’s impossible to
   build something.
@@ -14,8 +13,6 @@ If I could show just one talk to every software engineer, it wouldn’t be a tre
 > Let me explain a little. By the “closed mode” I mean the mode that we are in most of the time when we are at work. We have inside us a feeling that there’s lots to be done and we have to get on with it if we’re going to get through it all.
 >
 > It’s an active (probably slightly anxious) mode, although the anxiety can be exciting and pleasurable. It’s a mode which we’re probably a little impatient, if only with ourselves. It has a little tension in it, not much humor. It’s a mode in which we’re very purposeful, and it’s a mode in which we can get very stressed and even a bit manic, but not creative.
-
-<!-- more -->
 
 If you’ve worked on a team making software, you’ve almost certainly heard the[ thought-terminating cliché](https://en.wikipedia.org/wiki/Thought-terminating_clich%C3%A9), “[That’s impossible](https://hackernoon.com/shit-programmers-say-translated-946849c2fbd4)” hastily uttered by a programmer. I know I’ve said it; I suspect we all have. Sometimes engineers blurt this out because a product manager is asking them to do something unsupported by system APIs; sometimes they really mean “It’s hard” or “It’s not worth it” or even just “I don’t want to.” And then other times they are afraid to admit that they just don’t know *how* to do what’s being asked of them, even if they have a nagging suspicion that it can be done.
 

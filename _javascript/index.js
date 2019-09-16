@@ -89,7 +89,7 @@ const nav = document.querySelector("#categories>div");
 
 if (window.innerWidth < 700) {
   const img = new Image();
-  img.src = "/assets/hero-image.jpg";
+  img.src = "/uploads/hero-image.jpg";
   img.onload = () => {
     nav.style.left = "0px";
     setTimeout(() => {

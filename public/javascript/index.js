@@ -139,7 +139,7 @@ var initializeFilterByCategory = function initializeFilterByCategory(data, postL
       url.search = "";
       document.title = "".concat(capitalize__WEBPACK_IMPORTED_MODULE_1___default()(categoryName), " \xB7 Matthew Bischoff");
       window.history.replaceState(document.title, document.title, url.toString());
-      var latestAndCarrotHtml = "<img id=\"carrot\" src=\"/assets/carrot.svg\" alt=\"\"><span>Latest</span>";
+      var latestAndCarrotHtml = "<img id=\"carrot\" src=\"/uploads/carrot.svg\" alt=\"\"><span>Latest</span>";
 
       if (latestTag.innerHTML !== latestAndCarrotHtml) {
         latestTag.innerHTML = latestAndCarrotHtml;
@@ -353,7 +353,7 @@ var nav = document.querySelector("#categories>div");
 
 if (window.innerWidth < 700) {
   var img = new Image();
-  img.src = "/assets/hero-image.jpg";
+  img.src = "/uploads/hero-image.jpg";
 
   img.onload = function () {
     nav.style.left = "0px";

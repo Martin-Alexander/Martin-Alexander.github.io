@@ -40,7 +40,7 @@ export const initializeFilterByCategory = (data, postList) => {
       document.title = `${capitalize(categoryName)} · Matthew Bischoff`;
       window.history.replaceState(document.title, document.title, url.toString());
 
-      const latestAndCarrotHtml = `<img id="carrot" src="/assets/carrot.svg" alt=""><span>Latest</span>`;
+      const latestAndCarrotHtml = `<img id="carrot" src="/uploads/carrot.svg" alt=""><span>Latest</span>`;
       if (latestTag.innerHTML !== latestAndCarrotHtml) { latestTag.innerHTML = latestAndCarrotHtml }
       retractYearList();
     });
