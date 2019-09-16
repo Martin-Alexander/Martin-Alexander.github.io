@@ -41,6 +41,12 @@ body {
 
 blockquote {
   @media (max-width: $max-mobile-width) {
+    -webkit-margin-start: 20px;
+    -webkit-margin-end: 20px;
+
+    -moz-margin-start: 20px;
+    -moz-margin-end: 20px;
+
     margin-inline-start: 20px;
     margin-inline-end: 20px;
   }
