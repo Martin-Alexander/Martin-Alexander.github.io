@@ -12,7 +12,7 @@ a {
   }
 }
 
-p, ul {
+blockquote, p, ul {
   font-size: 1.2em;
   line-height: 30px;
   font-weight: 300;
@@ -50,6 +50,12 @@ audio {
   @media (max-width: $max-mobile-width) {
     width: 100%;
   }
+}
+
+iframe {
+  height: 50vw;
+  max-height: 400px;
+  width: 100%;
 }
 
 #mobile-menu {
