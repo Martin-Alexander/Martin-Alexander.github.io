@@ -1,0 +1,19 @@
+.face {
+  width: 130px;
+  height: 130px;
+  display: inline-block;
+  background-size: cover;
+  color: white;
+  padding: 10px;
+  font-weight: 600;
+  font-size: 25px;
+}
+
+.wrapper {
+  width: 304px;
+  margin: 10px auto;
+}
+
+body {
+  margin: 0px;
+}
